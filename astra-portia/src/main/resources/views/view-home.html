@@ -1,0 +1,90 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:include="header :: head"></head>
+<body>
+ <div class="navbar navbar-fixed-top" th:include="navbar :: navbar"></div>
+ <div class="subnavbar" th:include="navbar :: subnavbar"></div>
+  <div id="wrapper" class="container">
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+    	document.getElementById('cartouche').style.display='none';
+    });
+ </script>
+ 
+    <div id="content" class="clearfix">
+      <div class="main-inner" style="margin-top: 60px">
+	   <div class="container">
+        <div class="row">
+        			<!-- partial:index.partial.html -->
+			<div id="menu-text" class="center-menu">
+				<span id="designation"> &nbsp; </span>
+				<span id="orbitClass">&nbsp;</span>
+				<div class="planet"></div>
+			</div>
+			<div class="main-section">
+				<div class="sg-border">
+					<div class="arrow arrow1"></div>
+					<div class="arrow arrow2"></div>
+					<div class="arrow arrow3"></div>
+					<div class="arrow arrow4"></div>
+					<div class="arrow arrow5"></div>
+					<div class="arrow arrow6"></div>
+					<div class="arrow arrow7"></div>
+					<div class="arrow arrow8"></div>
+					<div class="arrow arrow9"></div>
+					<div id="stargate">
+						<div class="wormhole">
+							<img class="chevron" src="img/chevrons/001.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/002.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/003.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/004.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/005.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/006.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/007.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/008.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/009.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/010.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/011.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/012.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/013.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/014.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/015.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/016.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/017.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/018.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/019.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/020.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/021.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/022.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/023.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/024.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/025.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/026.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/027.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/028.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/029.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/030.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/031.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/032.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/033.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/034.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/035.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/036.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/037.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/038.svg"/><img class="chevron" src="https://manzdev.github.io/cursos-assets/css3/svg/chevrons/039.svg"/>
+						</div>
+					</div>
+				</div>
+				<div class="message" style="color:white">
+				<h1>Dial your destination with <span style="color:orange"> &lt;chevrons&gt;</h1>
+			</div>
+			</div>
+			
+			<div id="cartouche" 
+			  style="font-size:20px;padding:20px;color:white;position:absolute;top:150px;right:100px;border:1px solid white">
+			 <p style="color:orange;font-size:20px">Destination Dialed: <img src="img/chevrons/001.svg" style="height:40px;-webkit-filter:invert(1);filter:invert(1);" />
+			 </p>
+			 
+			 
+			 <img th:src="@{/img/chevrons/{id}.svg(id=${homebean.chevron1})}" style="height:40px;-webkit-filter:invert(1);filter:invert(1);" />
+			 <img th:src="@{/img/chevrons/{id}.svg(id=${homebean.chevron2})}" style="height:40px;-webkit-filter:invert(1);filter:invert(1);" />
+			 <img th:src="@{/img/chevrons/{id}.svg(id=${homebean.chevron3})}" style="height:40px;-webkit-filter:invert(1);filter:invert(1);" />
+			 <img th:src="@{/img/chevrons/{id}.svg(id=${homebean.chevron4})}" style="height:40px;-webkit-filter:invert(1);filter:invert(1);" />
+			 <img th:src="@{/img/chevrons/{id}.svg(id=${homebean.chevron5})}" style="height:40px;-webkit-filter:invert(1);filter:invert(1);" />
+			 <img th:src="@{/img/chevrons/{id}.svg(id=${homebean.chevron6})}" style="height:40px;-webkit-filter:invert(1);filter:invert(1);" />
+			 <p><br/>
+			 <p style="color:orange;font-size:20px">Database information</p>
+			 <ul>
+			  <li>ORBIT CLASS : <span style="color:#0890D0" th:text="${homebean.destination.data.orbitClass}"></span></li>
+			  <li>DESIGNATION: <span style="color:#0890D0" th:text="${homebean.destination.data.designation}"></span></li>
+			  <li>h_mag: <span style="color:#0890D0" th:text="${homebean.destination.data.h_mag}"></span></li>
+			  <li>i_deg: <span style="color:#0890D0" th:text="${homebean.destination.data.i_deg}"></span></li>
+			  <li>moid_au: <span style="color:#0890D0" th:text="${homebean.destination.data.moid_au}"></span></li>
+			  <li>period_yr: <span style="color:#0890D0" th:text="${homebean.destination.data.period_yr}"></span></li>
+			  <li>pha: <span style="color:#0890D0" th:text="${homebean.destination.data.pha}"></span></li>
+			  <li>q_au_1: <span style="color:#0890D0" th:text="${homebean.destination.data.q_au_1}"></span></li>
+			  <li>q_au_2: <span style="color:#0890D0" th:text="${homebean.destination.data.q_au_2}"></span></li>
+			  </ul>
+			</div>
+			
+			<!-- partial -->
+				<script  src="./js/script.js"></script>
+
+		</div>
+       </div>
+      </div>
+    </div>
+   </div>
+  </div>
+</div>
+</div>
+
+<div th:include="modals :: modal-about"></div>
+
+</body>
+</html>

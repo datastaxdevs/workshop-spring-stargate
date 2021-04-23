@@ -1,0 +1,33 @@
+ 
+ 
+##### PARAMETERS TO EDIT ###########
+stargate:
+  username: gateuser
+  password: gatepassword
+  namespace: stargate
+  url: https://eabba33b-dc22-4055-bced-e84e87cfa92c-europe-west1.apps.astra.datastax.com/api/rest
+####################################
+
+ 
+ 
+ 
+ 
+server:
+  port: ${PORT:8080}
+ 
+spring:
+   messages:
+    basename: i18n/messages  
+springdoc:
+  api-docs:
+    enabled: true
+    groups:
+      enabled: true
+  swagger-ui:
+    path: /swagger-ui.html
+    display-request-duration: true
+    groups-order: DESC
+  show-actuator: false
+  group-configs:
+    - group: Rest Controllers (Spring MVC)
+      packages-to-scan: com.datastax.astraportia
