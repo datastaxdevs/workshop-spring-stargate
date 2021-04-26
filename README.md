@@ -5,7 +5,7 @@
 [![License Apache2](https://img.shields.io/hexpm/l/plug.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 [![Discord](https://img.shields.io/discord/685554030159593522)](https://discord.com/widget?id=685554030159593522&theme=dark)
 
-Today we show you and application using  **Apache Cassandra™** as a backend implemented with **Spring Boot**, **Spring Data**, the [Stargate](stargate.io) and relating SDK.
+Today we show you and application using  **Apache Cassandra™** as a backend implemented with **Spring Boot**, **Spring Data**, the **[Stargate](http://stargate.io)** and relating SDK.
 
 ![SplashScreen](images/tutorials/splash.png?raw=true)
 
@@ -112,10 +112,16 @@ INSERT INTO chevrons (area, code, name, picture) VALUES ('Milky Way', 7, 'Serpen
 
 BTW those are real images :
 
-![#](https://github.com/datastaxdevs/workshop-spring-stargate/blob/main/images/glyphs/001glyph-earth.jpg?raw=true)
-![#](https://github.com/datastaxdevs/workshop-spring-stargate/blob/main/images/glyphs/002glyph-crater.jpg?raw=true)
-![#](https://github.com/datastaxdevs/workshop-spring-stargate/blob/main/images/glyphs/003glyph-virgo.jpg?raw=true)
-![#](https://github.com/datastaxdevs/workshop-spring-stargate/blob/main/images/glyphs/004glyph-bootes.jpg?raw=true)...
+![#](images/glyphs/001glyph-earth.jpg?raw=true)
+![#](images/glyphs/002glyph-crater.jpg?raw=true)
+![#](images/glyphs/003glyph-virgo.jpg?raw=true)
+![#](images/glyphs/004glyph-bootes.jpg?raw=true)...
+
+
+✅ **Step 2e: Insert all values**
+
+We could have inserted the 38 symbols of the `Milky Way` galaxy through inserts statements but we could not resist to show you yet another feature, the data loader.
+
 
 
 ## 3. Create Astra Token
