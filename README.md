@@ -59,8 +59,63 @@ The status will change to `Active` when the database is ready, this will only ta
 
 ## 2. Create Table and load data
 
+Once the database is created we want to create the tables to insert Data.
 
-blob:https://astra.datastax.com/451e7171-467f-4d41-bedf-e70a699c21e0
+✅ **Step2a: Locate and open CQLConsole**
+
+- Click the name of you database `workshops` in the panel on the left
+
+- Locate the tab `CQL Console`, the prompt will open, there is no need to enter credentials here.
+
+![image](images/tutorials/cqlshconsole.png?raw=true)
+
+
+✅ **Step 2b: Navigate to your keyspace**
+
+- Enter the following statement in CqlSH console to list existing keyspaces, you should see the one you created with the database.
+
+```sql
+describe keyspaces;
+```
+
+- Enter the following statement in CqlSH console to select your keyspace:
+
+```sql
+use stargate;
+```
+
+✅ **Step 2c: Create Entities**
+
+- Enter the following statement in CqlSH console to Create a table `chevrons` with the following
+
+```sql
+CREATE TABLE IF NOT EXISTS stargate.chevrons(
+   area text,
+   code int ,
+   name text,
+   picture text,
+   PRIMARY KEY ((area), code)
+) WITH CLUSTERING ORDER BY (code ASC);
+```
+
+✅ **Step 2d: Insert a couple of values with the following**
+
+```sql
+INSERT INTO chevrons (area, code, name, picture) VALUES ('Milky Way', 1, 'Earth', 'https://github.com/datastaxdevs/workshop-spring-stargate/blob/main/images/glyphs/001glyph-earth.jpg?raw=true');
+INSERT INTO chevrons (area, code, name, picture) VALUES ('Milky Way', 2, 'Crater', 'https://github.com/datastaxdevs/workshop-spring-stargate/blob/main/images/glyphs/002glyph-crater.jpg?raw=true');
+INSERT INTO chevrons (area, code, name, picture) VALUES ('Milky Way', 3, 'Virgo', 'https://github.com/datastaxdevs/workshop-spring-stargate/blob/main/images/glyphs/003glyph-virgo.jpg?raw=true');
+INSERT INTO chevrons (area, code, name, picture) VALUES ('Milky Way', 4, 'Bootes', 'https://github.com/datastaxdevs/workshop-spring-stargate/blob/main/images/glyphs/004glyph-bootes.jpg?raw=true');
+INSERT INTO chevrons (area, code, name, picture) VALUES ('Milky Way', 5, 'Centaurus', 'https://github.com/datastaxdevs/workshop-spring-stargate/blob/main/images/glyphs/005glyph-centarus.jpg?raw=true');
+INSERT INTO chevrons (area, code, name, picture) VALUES ('Milky Way', 6, 'Libra', 'https://github.com/datastaxdevs/workshop-spring-stargate/blob/main/images/glyphs/006glyph-libra.jpg?raw=true');
+INSERT INTO chevrons (area, code, name, picture) VALUES ('Milky Way', 7, 'Serpenscaput', 'https://github.com/datastaxdevs/workshop-spring-stargate/blob/main/images/glyphs/007glyph-serpenscaput.jpg?raw=true');
+```
+
+BTW those are real images :
+
+![#](https://github.com/datastaxdevs/workshop-spring-stargate/blob/main/images/glyphs/001glyph-earth.jpg?raw=true)
+![#](https://github.com/datastaxdevs/workshop-spring-stargate/blob/main/images/glyphs/002glyph-crater.jpg?raw=true)
+![#](https://github.com/datastaxdevs/workshop-spring-stargate/blob/main/images/glyphs/003glyph-virgo.jpg?raw=true)
+![#](https://github.com/datastaxdevs/workshop-spring-stargate/blob/main/images/glyphs/004glyph-bootes.jpg?raw=true)...
 
 
 ## 3. Create Astra Token
