@@ -22,27 +22,23 @@ Which better business domain than the TV Show **Stargate** hoping it will not br
 ## Table of content
 
 1. [Create Astra Instance](#1-create-astra-instance)
-2. [Create Astra Cassandra](#2-create-astra-token)
+2. [Create Astra Token](#2-create-astra-token)
 
 ## 1. Create Astra Instance
 
 **`ASTRA`** is the simplest way to run Cassandra with zero operations at all - just push the button and get your cluster. No credit card required, $25.00 USD credit every month, roughly 5M writes, 30M reads, 40GB storage monthly - sufficient to run small production workloads.  
 
-✅ **Register (if needed) and Sign In to Astra** [https://astra.datastax.com](https://dtsx.io/workshop): You can use your `Github`, `Google` accounts or register with an `email`.
+✅ **Step 1a. If you do have an account yet register and sign In to Astra this is FREE and NO CREDIT CARD asked** [https://astra.datastax.com](https://dtsx.io/workshop): You can use your `Github`, `Google` accounts or register with an `email`.
 
 _Make sure to chose a password with minimum 8 characters, containing upper and lowercase letters, at least one number and special character_
 
-✅ **Create a "pay as you go" plan**
+✅ **Step 1b. Create a "pay as you go" plan**
 
-Follow this [guide](https://docs.datastax.com/en/astra/docs/creating-your-astra-database.html), to set up a pay as you go database with a free $25 monthly credit.
+Follow this [guide](https://docs.datastax.com/en/astra/docs/creating-your-astra-database.html), to set up a pay as you go database with a free $25 monthly credit. You will find below recommended values to enter: 
 
-- **Select the pay as you go option**: Includes $25 monthly credit - no credit card needed to set up.
+- **For the database name** - `workshops`
 
-You will find below which values to enter for each field.
-
-- **For the database name** - `workshops.` While Astra allows you to fill in these fields with values of your own choosing, please follow our recommendations to ensure the application runs properly.
-
-- **For the keyspace name** - `stargate`. It's really important that you use the name "free" for the code to work.
+- **For the keyspace name** - `stargate`
 
 _You can technically use whatever you want and update the code to reflect the keyspace. This is really to get you on a happy path for the first run._
 
@@ -56,12 +52,20 @@ You will see your new database `pending` in the Dashboard.
 
 The status will change to `Active` when the database is ready, this will only take 2-3 minutes. You will also receive an email when it is ready.
 
-###  Video
+**👁️ Walkthough**
+
 ![image](images/tutorials/astra-create-db.gif?raw=true)
 
-## 2. Create Astra Token 
 
-To use the API we will need a token please create a token following the instructions here:
+## 2. Create Table and load data
+
+
+blob:https://astra.datastax.com/451e7171-467f-4d41-bedf-e70a699c21e0
+
+
+## 3. Create Astra Token
+
+To interact with our new created datasbase
 
 ✅ [Create a token for your app](https://docs.datastax.com/en/astra/docs/manage-application-tokens.html) to use in the settings screen
 
@@ -71,11 +75,11 @@ Copy the token value (eg `AstraCS:KDfdKeNREyWQvDpDrBqwBsUB:ec80667c....`) in you
 ![image](images/tutorials/astra-token.png?raw=true)
 
 
-## 1. Launch Gitpod
+## 4. Launch Gitpod
 
 [Gitpod](https://www.gitpod.io/) is an IDE 100% online based on Eclipse Theia. To initialize your environment simply click on the button below *(CTRL + Click to open in new tab)* You will be asked for you github account.
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/DataStax-Academy/workshop-spring-data-cassandra)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/datastaxdevs/workshop-spring-stargate)
 
 **👁️ Expected output**
 

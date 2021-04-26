@@ -5,4 +5,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ChevronRepository 
-    extends CassandraRepository<ChevronPrimaryKey, Chevron> {}
+    extends CassandraRepository<Chevron, ChevronPrimaryKey> {}

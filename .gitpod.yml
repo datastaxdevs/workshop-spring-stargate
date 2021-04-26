@@ -1,0 +1,27 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - name: spring-data-cassandra
+    init: |
+      cd todobackend-springdata && mvn clean package install -Dmaven.test.skip=true
+ports:
+  - port: 8080
+    onOpen: open-browser 
+
+github:
+  prebuilds:
+    master: true
+    branches: true
+    pullRequests: true
+    pullRequestsFromForks: false
+    addCheck: true
+    addComment: false
+    addBadge: true
+    addLabel: false
+
+vscode:
+  extensions:
+    #- Pivotal.vscode-spring-boot@1.22.0:NtlGb5ygHm2uP5qeqfVrCA==
+    #- cool2k.vscode-lombok@1.0.2:e816/wZO588Jp8PN58Wj6g==
+    #- Pivotal.vscode-boot-dev-pack@0.0.8:KGahbNlLCY19QUebUzdLbA==
