@@ -2,9 +2,13 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - name: spring-data-cassandra
+  - name: build-sdk
+    before: git clone https://github.com/datastax/astra-sdk-java.git
     init: |
-      cd todobackend-springdata && mvn clean package install -Dmaven.test.skip=true
+      cd /workspace/workshop-spring-stargate/astra-sdk-java &&   mvn clean install -Dmaven.test.skip=true
+  - name: build-stargate
+    init: |
+      cd /workspace/workshop-spring-stargate/stargate-demo && mvn clean package install -Dmaven.test.skip=true
 ports:
   - port: 8080
     onOpen: open-browser 

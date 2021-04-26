@@ -186,7 +186,7 @@ select code,name from stargate.chevrons where area='Milky Way';
 
 ## 3. Create Astra Token
 
-To interact with our new created database with some code we need to create credentials.
+To interact with our new created database through code and programming we need to create some credentials.
 
 ✅ **Step 3a: Generate Token**
 
@@ -201,8 +201,8 @@ To interact with our new created database with some code we need to create crede
 **👁️ Walkthrough**
 ![image](images/tutorials/astra-create-token.gif?raw=true)
 
+This is what the token page looks like. You can now download the values as a CSV. We will need those values but you can also keep this window open.
 
-**👁️ Output**
 ![image](images/tutorials/astra-token.png?raw=true)
 
 Notice the clipboard icon at the end of each value.

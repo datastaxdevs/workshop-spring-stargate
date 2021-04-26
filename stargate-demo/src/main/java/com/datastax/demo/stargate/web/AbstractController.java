@@ -19,8 +19,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.thymeleaf.context.WebContext;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 
-import com.datastax.astraportia.stargate.StargateHttpClient;
-import com.datastax.demo.stargate.StargateDemoServices;
+import com.datastax.astra.sdk.AstraClient;
 
 /**
  * SuperClass for controllers
@@ -39,10 +38,7 @@ public abstract class AbstractController {
     protected SpringTemplateEngine templateEngine;
     
     @Autowired
-    protected StargateHttpClient apiClient;
-    
-    @Autowired
-    protected StargateDemoServices astraPortiaServices;
+    protected AstraClient astraClient;
    
     /**
      * Define response Locale (Cookie <-> HttpSession <-> Request)
@@ -99,7 +95,7 @@ public abstract class AbstractController {
         
         WebContext ctx = new WebContext(req, res,  req.getSession().getServletContext(), res.getLocale());
         try {
-            ctx.setVariable("namespace", apiClient.getNameSpace());
+            ctx.setVariable("namespace", astraClient.cqlSession().getKeyspace().get().asInternal());
             get(req, res, ctx);
         } catch(Throwable t) {
             ctx.setVariable("msgType", "error");

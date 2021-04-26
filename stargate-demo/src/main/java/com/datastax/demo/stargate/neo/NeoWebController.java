@@ -44,7 +44,7 @@ public class NeoWebController extends AbstractController {
         String documentId = req.getParameter("uid");
         if ("delete".equalsIgnoreCase(operation)) {
             logger.info("Delete NearEarthObject {}", documentId);
-            astraPortiaServices.deleteNeo(documentId);
+            //astraPortiaServices.deleteNeo(documentId);
             msg = documentId + " has been DELETED";
         }
         ctx.setVariable("msgType", msgType);
@@ -53,9 +53,9 @@ public class NeoWebController extends AbstractController {
     }
     
     private void renderPage(WebContext ctx) {
-        NeoWebBean web = new NeoWebBean();
-        web.setNeolist(astraPortiaServices.findAllNeos());
-        ctx.setVariable("cbean", web);
+        //NeoWebBean web = new NeoWebBean();
+        //web.setNeolist(astraPortiaServices.findAllNeos());
+        ctx.setVariable("cbean", new Neo());
     }
 
     

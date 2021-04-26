@@ -3,7 +3,7 @@ package com.datastax.demo.stargate.web;
 import java.io.Serializable;
 import java.util.Random;
 
-import com.datastax.demo.stargate.neo.NeoDoc;
+import com.datastax.demo.stargate.neo.Neo;
 
 /**
  * Web bean to be displayed on home page
@@ -14,7 +14,7 @@ public class HomeBean implements Serializable {
     /** Serial. */
     private static final long serialVersionUID = -4329564412692576275L;   
     
-    private NeoDoc destination;
+    private Neo destination = new Neo();
     
     private String chevron1 = getRandomChevron();
     private String chevron2 = getRandomChevron();
@@ -34,19 +34,10 @@ public class HomeBean implements Serializable {
      * @return
      *       current value of 'destination'
      */
-    public NeoDoc getDestination() {
+    public Neo getDestination() {
         return destination;
     }
-
-    /**
-     * Setter accessor for attribute 'destination'.
-     * @param destination
-     * 		new value for 'destination '
-     */
-    public void setDestination(NeoDoc destination) {
-        this.destination = destination;
-    }
-
+    
     /**
      * Getter accessor for attribute 'chevron1'.
      *
@@ -159,6 +150,15 @@ public class HomeBean implements Serializable {
      */
     public void setChevron6(String chevron6) {
         this.chevron6 = chevron6;
+    }
+
+    /**
+     * Setter accessor for attribute 'destination'.
+     * @param destination
+     * 		new value for 'destination '
+     */
+    public void setDestination(Neo destination) {
+        this.destination = destination;
     }
     
 

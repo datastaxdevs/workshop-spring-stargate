@@ -21,13 +21,15 @@ springdoc:
       
 # Properties exoected by the starter
 astra:
+
   # Credentials to DB
-  client-id: 
-  client-secret: 
-  application-token: AstraCS:cNzNxcWvlMKUHfzsEJkarzZM:cf3973c149dc67bb99bd17eafe8ecbd7951cf78af002a64415524c58a9df7eac
+  client-id: QYWtywhlasmujIrTCRsfGcge
+  client-secret: hxOa5huhM2MKtZcJyLDK1vLAQ,mZOWpm6R8fUiA5JcHdSYh_nWLgUygR-hEqHDNk5yu8Sv7E-TTt0Zof+v3RkluuN1vDZYAAz,rf6F1,ozfaA2kOFA2X0XLbOxsno-69
+  application-token: AstraCS:QYWtywhlasmujIrTCRsfGcge:0fae655b765930c517a0215e876fef2aa2728c1ef0fd3f91bdda6fc69f54c128
+
   # Select an instance
   cloud-region: eu-central-1
-  database-id: 500c4934-7da3-47fb-b193-9dccc4375a41
-  keyspace: bootiful
+  database-id: 510f4ff3-526e-4e50-8c94-b165ee7e1575
+  keyspace: stargate
   
 

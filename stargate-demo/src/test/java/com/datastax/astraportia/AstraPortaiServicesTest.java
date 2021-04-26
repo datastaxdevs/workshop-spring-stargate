@@ -1,22 +1,17 @@
 package com.datastax.astraportia;
 
-import java.util.List;
 import java.util.UUID;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.platform.runner.JUnitPlatform;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
-import com.datastax.astraportia.stargate.StargateHttpClient;
-import com.datastax.demo.stargate.StargateDemoServices;
+import com.datastax.astra.sdk.AstraClient;
 import com.datastax.demo.stargate.neo.Neo;
-import com.datastax.demo.stargate.neo.NeoDoc;
 
 /**
  * Validation of {@link StargateHttpClient} with {@link Neo} and a Json Dataset.
@@ -25,20 +20,20 @@ import com.datastax.demo.stargate.neo.NeoDoc;
  */
 @RunWith(JUnitPlatform.class)
 @SpringJUnitConfig
-@ContextConfiguration(classes = {StargateHttpClient.class, StargateDemoServices.class})
+@ContextConfiguration(classes = {AstraClient.class})
 @TestPropertySource(locations = "/application-test.properties")
 public class AstraPortaiServicesTest {
     
     public static final String dataset = 
             "src/main/resources/2020_09_10_near_earth_asteroids_and_comets.json";
     
-    @Autowired
-    private StargateDemoServices services;
+    //@Autowired
+    //private StargateDemoServices services;
     
     @Test
     @DisplayName("Import the DataSet")
     public void batch_import() {
-        services.importNeoJsonDataSet(dataset);
+        //services.importNeoJsonDataSet(dataset);
     }
     
     @Test
@@ -47,15 +42,15 @@ public class AstraPortaiServicesTest {
         // Given
         UUID myDocId = UUID.randomUUID();
         // When inserting providing id
-        String docid2 = services.createNeo(new Neo(), myDocId.toString());
+        //String docid2 = services.createNeo(new Neo(), myDocId.toString());
         // Then if returned is the expected one
-        Assertions.assertEquals(docid2, myDocId.toString());
+        //Assertions.assertEquals(docid2, myDocId.toString());
     }
     
     @Test
     public void should_findAll_neo() {
-        List<NeoDoc> docs = services.findAllNeos();
-        Assertions.assertTrue(docs.size() > 100);
+        //List<NeoDoc> docs = services.findAllNeos();
+        //Assertions.assertTrue(docs.size() > 100);
     }
     
 

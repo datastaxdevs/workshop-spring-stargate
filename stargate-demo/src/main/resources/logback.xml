@@ -7,7 +7,9 @@
     <root level="WARN">
         <appender-ref ref="STDOUT"/>
     </root>
-    <logger name="com.datastax.astraportia" level="INFO"/>
-    <logger name="com.datastax.oss"      level="ERROR"/>
+    <logger name="com.datastax.demo"     level="INFO"  />
+    <logger name="com.datastax.astra"    level="INFO"  />
+    <logger name="com.datastax.stargate" level="INFO"  />
+    <logger name="com.datastax.oss"      level="ERROR" />
     <logger name="org.junit.vintage"     level="ERROR" />
 </configuration>

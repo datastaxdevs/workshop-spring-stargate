@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.thymeleaf.context.WebContext;
 
+import com.datastax.demo.stargate.neo.Neo;
+
 /**
  * Home Controller, we want to show the gate.
  *
@@ -30,7 +32,8 @@ public class HomeController extends AbstractController {
     public void get(HttpServletRequest req, HttpServletResponse res, WebContext ctx) 
     throws Exception {
         HomeBean hb = new HomeBean();
-        hb.setDestination(astraPortiaServices.getRandomNeo());
+        Neo neo = new Neo();
+        hb.setDestination(neo);
         ctx.setVariable("homebean", hb);
     }
     
