@@ -1,4 +1,4 @@
-package com.datastax.astraportia.neo;
+package com.datastax.demo.stargate.neo;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package com.datastax.astraportia.neo;
+package com.datastax.demo.stargate.neo;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import static org.springframework.web.bind.annotation.RequestMethod.DELETE;
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.datastax.astraportia.AstraPortiaServices;
+import com.datastax.demo.stargate.StargateDemoServices;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -38,7 +38,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 public class NeoRestController {
     
     @Autowired
-    private AstraPortiaServices services;
+    private StargateDemoServices services;
     
     /**
      * Retrieve all tasks (GET)

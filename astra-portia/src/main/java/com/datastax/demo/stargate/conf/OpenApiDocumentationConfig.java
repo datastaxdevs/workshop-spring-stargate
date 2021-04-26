@@ -1,4 +1,4 @@
-package com.datastax.astraportia.conf;
+package com.datastax.demo.stargate.conf;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -14,9 +14,9 @@ public class OpenApiDocumentationConfig {
 
     @Bean
     public OpenAPI openApiSpec(@Value("1.3.9") String appVersion) {
-        String des = "Backend for Astra Portia";
+        String des = "Api for User Interface";
         Info info  = new Info()
-                .title("Backend for AstraPortia")
+                .title("Stargate Demo")
                 .version(appVersion)
                 .description(des)
                 .termsOfService("http://swagger.io/terms/")

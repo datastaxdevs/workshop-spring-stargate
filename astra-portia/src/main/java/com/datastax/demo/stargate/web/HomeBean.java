@@ -1,9 +1,9 @@
-package com.datastax.astraportia.web;
+package com.datastax.demo.stargate.web;
 
 import java.io.Serializable;
 import java.util.Random;
 
-import com.datastax.astraportia.neo.NeoDoc;
+import com.datastax.demo.stargate.neo.NeoDoc;
 
 /**
  * Web bean to be displayed on home page

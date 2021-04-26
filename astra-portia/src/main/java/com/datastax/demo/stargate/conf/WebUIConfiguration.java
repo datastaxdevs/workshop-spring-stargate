@@ -1,4 +1,4 @@
-package com.datastax.astraportia.conf;
+package com.datastax.demo.stargate.conf;
 
 import javax.annotation.PostConstruct;
 

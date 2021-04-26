@@ -1,4 +1,4 @@
-package com.datastax.astraportia;
+package com.datastax.demo.stargate;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -14,9 +14,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import com.datastax.astraportia.neo.Neo;
-import com.datastax.astraportia.neo.NeoDoc;
 import com.datastax.astraportia.stargate.StargateHttpClient;
+import com.datastax.demo.stargate.neo.Neo;
+import com.datastax.demo.stargate.neo.NeoDoc;
 import com.fasterxml.jackson.core.type.TypeReference;
 
 /**
@@ -25,10 +25,10 @@ import com.fasterxml.jackson.core.type.TypeReference;
  * @author DataStax Clavis Team
  */
 @Component
-public class AstraPortiaServices {
+public class StargateDemoServices {
     
     /** Logger for the class. */
-    private static final Logger logger = LoggerFactory.getLogger(AstraPortiaServices.class);
+    private static final Logger logger = LoggerFactory.getLogger(StargateDemoServices.class);
     
     /** Collection Name chosen for the Near_EARTH_OBJECT. */
     public static final String NEAR_EARTH_OBJECT_COLLECTION = "neo_doc";
@@ -37,7 +37,7 @@ public class AstraPortiaServices {
     private StargateHttpClient stargateClient;
     
     /** Injection client for service. */
-    public AstraPortiaServices(StargateHttpClient client) {
+    public StargateDemoServices(StargateHttpClient client) {
         this.stargateClient = client;
     }
     

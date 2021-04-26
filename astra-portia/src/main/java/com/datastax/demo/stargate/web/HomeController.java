@@ -1,4 +1,4 @@
-package com.datastax.astraportia.web;
+package com.datastax.demo.stargate.web;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

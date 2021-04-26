@@ -1,13 +1,13 @@
-package com.datastax.astraportia;
+package com.datastax.demo.stargate;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AstraPortiaApplication {
+public class StargateDemoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(AstraPortiaApplication.class, args);
+		SpringApplication.run(StargateDemoApplication.class, args);
 	}
 
 }

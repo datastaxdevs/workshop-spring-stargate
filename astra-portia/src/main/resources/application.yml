@@ -1,17 +1,4 @@
- 
- 
-##### PARAMETERS TO EDIT ###########
-stargate:
-  username: gateuser
-  password: gatepassword
-  namespace: stargate
-  url: https://eabba33b-dc22-4055-bced-e84e87cfa92c-europe-west1.apps.astra.datastax.com/api/rest
-####################################
 
- 
- 
- 
- 
 server:
   port: ${PORT:8080}
  
@@ -30,4 +17,17 @@ springdoc:
   show-actuator: false
   group-configs:
     - group: Rest Controllers (Spring MVC)
-      packages-to-scan: com.datastax.astraportia
+      packages-to-scan: com.datastax.demo.stargate
+      
+# Properties exoected by the starter
+astra:
+  # Credentials to DB
+  client-id: 
+  client-secret: 
+  application-token: AstraCS:cNzNxcWvlMKUHfzsEJkarzZM:cf3973c149dc67bb99bd17eafe8ecbd7951cf78af002a64415524c58a9df7eac
+  # Select an instance
+  cloud-region: eu-central-1
+  database-id: 500c4934-7da3-47fb-b193-9dccc4375a41
+  keyspace: bootiful
+  
+

@@ -1,8 +1,8 @@
-package com.datastax.astraportia.web;
+package com.datastax.demo.stargate.web;
 
-import static com.datastax.astraportia.web.WebUtils.getCookie;
-import static com.datastax.astraportia.web.WebUtils.getSessionAttribute;
-import static com.datastax.astraportia.web.WebUtils.setSessionAttribute;
+import static com.datastax.demo.stargate.web.WebUtils.getCookie;
+import static com.datastax.demo.stargate.web.WebUtils.getSessionAttribute;
+import static com.datastax.demo.stargate.web.WebUtils.setSessionAttribute;
 
 import java.io.IOException;
 import java.util.Locale;
@@ -19,8 +19,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.thymeleaf.context.WebContext;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 
-import com.datastax.astraportia.AstraPortiaServices;
 import com.datastax.astraportia.stargate.StargateHttpClient;
+import com.datastax.demo.stargate.StargateDemoServices;
 
 /**
  * SuperClass for controllers
@@ -42,7 +42,7 @@ public abstract class AbstractController {
     protected StargateHttpClient apiClient;
     
     @Autowired
-    protected AstraPortiaServices astraPortiaServices;
+    protected StargateDemoServices astraPortiaServices;
    
     /**
      * Define response Locale (Cookie <-> HttpSession <-> Request)
