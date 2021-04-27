@@ -440,11 +440,68 @@ cd /workspace/workshop-spring-stargate/stargate-demo
 mvn spring-boot:run
 ```
 
-**👁️ Expected output **
+Your application is now started you should have a look to the logs here
+
+```bash
+ Initializing [AstraClient]
+ + Load configuration from Environment Variables/Property
+ + Load configuration from Builder parameters
+ + Devops API is enabled.
+ + Creating folder .astra
+ + Downloading secureBundle for db '3c7fc647-c03b-4a0c-aa6b-a00dd677ac53'
+ + SecureBundle Path used: /home/gitpod/.astra/secure_connect_bundle_3c7fc647-c03b-4a0c-aa6b-a00dd677ac53.zip
+ + Using clientId/clientSecret for CqlSession
+ + Document API:  https://3c7fc647-c03b-4a0c-aa6b-a00dd677ac53-eu-central-1.apps.astra.datastax.com/api/rest, 
+ + Rest API: https://3c7fc647-c03b-4a0c-aa6b-a00dd677ac53-eu-central-1.apps.astra.datastax.com/api/rest, 
+ + Rest API: http://localhost:8080, 
+ Using Keyspace stargate
+ + Cql API: Enabled
+ [StargateClient] has been initialized
+ [AstraClient] has been initialized.
+```
+
+**👁️ Expected output**
+
+![gitpod](images/tutorials/gitpod-06-start.png?raw=true)
+
+✅ **Step 9b: Open the application**
+
+Are you ready ? Now is the time to play the DEMO 
+
+```bash
+$(gp url 8080)
+```
+
+```bash
+gp preview $(gp url 8080)/
+```
+
+Click the Stargate logo, the music start
+
+Click the Chrevrons in the order of your choice
+
+Sorry by the destination is fixed in the demo (just a UI thing)
+
+
+
 
 [🏠 Back to Table of Contents](#table-of-content)
 
 ## 10. Using Stargate Rest API
+
+✅ **Step 10a: Open swagger in the preview**
+
+- In the logs of the application started locate the URL `REST API:` in my case it is `https://3c7fc647-c03b-4a0c-aa6b-a00dd677ac53-eu-central-1.apps.astra.datastax.com/api/rest/`. 
+
+- Add `swagger-ui/` as a suffix and open it in the preview
+
+```bash
+gp preview https://3c7fc647-c03b-4a0c-aa6b-a00dd677ac53-eu-central-1.apps.astra.datastax.com/api/rest/swagger-ui/
+```
+
+**👁️ Expected output**
+
+![gitpod](images/tutorials/gitpod-07-swagger.png?raw=true)
 
 [🏠 Back to Table of Contents](#table-of-content)
 
