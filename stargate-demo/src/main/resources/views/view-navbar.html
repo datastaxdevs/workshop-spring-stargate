@@ -8,11 +8,11 @@
    <a class="brand" href="/" style="">
     <img src="" th:src="@{/img/stargate.png}" height="45px" style="height:45px"/>
     &nbsp; &nbsp; &nbsp;
-    Porta Astria 
+    Workshop Spring Stargate and SDK
    </a>
         
    <div class="nav-collapse"  style="margin-top:15px;float:right">
-   	 <li>NAMESPACE=<span style="color:#0890D0" th:text="${namespace}"></span></li>
+   	 <li>Keyspace=<span style="color:#0890D0" th:text="${namespace}"></span></li>
    </div>
   </div>
  </div>
@@ -27,18 +27,6 @@
      <a href="/" >
       <i class="icon-asterisk"></i>
        <span th:text="#{navbar.main.home}" >STARGATE</span>
-     </a>
-    </li>
-    <li>
-     <a href="" th:href="@{neo}" >
-      <i class="icon-globe"></i> 
-      <span th:text="#{navbar.main.nearearth}" >Near Earth OBJECT</span>
-     </a>
-    </li>
-     <li>
-     <a href="/swagger-ui.html" >
-      <i class="icon-book"></i> 
-      <span th:text="#{navbar.main.swagger}" >API</span>
      </a>
     </li>
     <li>

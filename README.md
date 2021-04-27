@@ -453,10 +453,32 @@ mvn test -Dtest=com.datastax.demo.stargate.Ex1_UseCqlSessionTest
 
 ✅ **Step 8b: Working With Spring Data**
 
-Spring Data allow some Mapping `Object <=> Table` based on annotation at the java bean level. Then By convention some query will be executed under the hood.
+Spring Data allow some Mapping `Object <=> Table` based on annotation at the java bean level. Then by convention CQL query will be executed under the hood.
 
 ```bash
 mvn test -Dtest=com.datastax.demo.stargate.Ex2_UseSpringDataTest
+```
+
+This test perform 3 operations:
+- Find all Chevrons in the table
+- Find a chevron by its primary key
+- Find all chevron in oour galaxy (partition key)
+
+**👁️ Expected output**
+
+```bash
+[...]
+ [OK]  - Test #2.1 Successful - you ROCK !
+[...]
+[OK]  - Test #2.2 Successful - you ROCK !
+[...]
+[OK]  - Test #2.3 Successful - you ROCK !
+```
+
+We can also query the destination table to find coordinates:
+
+```bash
+mvn test -Dtest=com.datastax.demo.stargate.Ex3_UseSpringDataDestinationTest
 ```
 
 
@@ -499,7 +521,9 @@ Your application is now started you should have a look to the logs here
 
 ✅ **Step 9b: Open the application**
 
-Are you ready ? Now is the time to play the DEMO  
+Are you ready ? Now is the time to play the DEMO. It is better to use 
+
+
 
 ```bash
 $(gp url 8080)
@@ -543,6 +567,10 @@ gp preview https://3c7fc647-c03b-4a0c-aa6b-a00dd677ac53-eu-central-1.apps.astra.
 [🏠 Back to Table of Contents](#table-of-content)
 
 ## 12. Walthrough SDK
+
+```bash
+mvn test -Dtest=com.datastax.demo.stargate.Ex4_SdkDevopsApi
+```
 
 [🏠 Back to Table of Contents](#table-of-content)
 

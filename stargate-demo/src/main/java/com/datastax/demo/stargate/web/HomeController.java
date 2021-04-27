@@ -46,19 +46,11 @@ public class HomeController extends AbstractController {
     @Override
     public void get(HttpServletRequest req, HttpServletResponse res, WebContext ctx) 
     throws Exception {
-        System.out.println("OKOOKOKOKOKOKOKOKOKO");
-        System.out.println("OKOOKOKOKOKOKOKOKOKO");
-        System.out.println("OKOOKOKOKOKOKOKOKOKO");
-        System.out.println("OKOOKOKOKOKOKOKOKOKO");
-        System.out.println("OKOOKOKOKOKOKOKOKOKO");
-        System.out.println("OKOOKOKOKOKOKOKOKOKO");
         HomeBean hb = new HomeBean();
-        
         // Put it in the webs
         hb.setDestination(destinationRepository
                 .findById(new DestinationPrimaryKey("Milky Way", "Chulak"))
                 .get());
-        System.out.println(hb.getDestination());
         
         // Populate Chevrons
         if (chevronMap.isEmpty()) {
@@ -67,7 +59,6 @@ public class HomeController extends AbstractController {
             });
         }
         hb.setChevronMap(chevronMap);
-        System.out.println(hb.getDestination());
         ctx.setVariable("homebean", hb);
     }
     

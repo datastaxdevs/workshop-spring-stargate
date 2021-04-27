@@ -4,8 +4,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.datastax.demo.stargate.chevrons.ChevronPrimaryKey;
-import com.datastax.demo.stargate.chevrons.ChevronRepository;
 import com.datastax.demo.stargate.destinations.DestinationPrimaryKey;
 import com.datastax.demo.stargate.destinations.DestinationRepository;
 
