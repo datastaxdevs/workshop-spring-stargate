@@ -395,33 +395,52 @@ cd /workspace/workshop-spring-stargate/stargate-demo && mvn clean package instal
 
 ## 7. Setup your application
 
-To run the application you need to provide the credentials and identifier to the application.
-
-- Open the file `stargate-demo/src/main/resources/application.yml` as show below.
-
-- Replace `client-id`, `clientSecret`, `application-token` with values shown on the Astra token screen or using the CSV token file tyour dowloaded before.
-
-
-
-**👁️ Expected output**
+To run the application you need to provide the credentials and identifier to the application. you will have to provide 6 values in total as shown below
 
 ![gitpod](images/tutorials/gitpod-05-appyml.png?raw=true)
 
+✅ **Step 7a: Enter 3 values from the token**
 
+- Open the file `stargate-demo/src/main/resources/application.yml` as show below.
 
-Edit the configuraton file
+- Replace `client-id`, `clientSecret`, `application-token` with values shown on the Astra token screen or picking the values from the CSV token file your dowloaded before.
+
+> To ease the copy-paste yu can use the small clipboard icons as show in the walkthrough.
+
+✅ **Step 7b: Enter 3 values related to your DB**
+
+- In Astra go back to home page by clicking the logo
+
+- Select you database `workshops` in the left panel and then copy values for `cloud-region` and `database-id` (clusterID) from the details page
+
+**👁️ Walkthrough**
+
+![gitpod](images/tutorials/copy-credentials.gif?raw=true)
+
+TADA your application is now configured we ccan finally play with some code.
+
 [🏠 Back to Table of Contents](#table-of-content)
 
-
 ## 8. Run some unit tests
+
+```
+todo
+```
 
 [🏠 Back to Table of Contents](#table-of-content)
 
 ## 9. Run the application
 
+✅ **Step 9a: Start the application**
+
+Navigate to the folder and simply start the application with the following command
+
 ```bash
+cd /workspace/workshop-spring-stargate/stargate-demo
 mvn spring-boot:run
 ```
+
+**👁️ Expected output **
 
 [🏠 Back to Table of Contents](#table-of-content)
 
