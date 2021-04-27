@@ -22,23 +22,18 @@ Which better business domain than the TV Show **Stargate** hoping it will not br
 ## Table of content
 
 1. [Create Astra Instance](#1-create-astra-instance)
-2. [Create Tables and load Data](#2-create-table-and-load-data)
-3. [Create Astra Token](#3-create-astra-token)
-4. [Launch Gitpod]()
-5. [Know your Gitpod]()
-6. [Setup your Application]()
-7. [Start the Application]()
-
-## 7. CRUD with Spring Data
-
-## 
-```
-mvn spring-boot:run
-```
-
-## 9. Using Stargate API
-
-## 10. Using SDK
+2. [Create Tables and insert data](#2-create-table-and-load-data)
+3. [Load dataSet as a CSV](#)
+4. [Create Astra Token](#3-create-astra-token)
+5. [Launch Gitpod](#)
+6. [Know your Gitpod](#)
+7. [Setup your Application](#)
+8. [Run Unit tests](#)
+9. [Run the Application](#)
+10. [Using Stargate Rest API](#)
+11. [Using Stargate Document API](#)
+11. [Using Stargate GraphQL API](#)
+12. [Walkthrough Stargate SDK](#)
 
 
 ## 1. Create Astra Instance
@@ -184,11 +179,46 @@ select count(*) from stargate.chevrons;
 select code,name from stargate.chevrons where area='Milky Way';
 ```
 
-## 3. Create Astra Token
+## 3. Load dataSet as a CSV
+
+Inserting a couple of values with CQLSH is great but quite verbose right ? we created the table and insert a couple of values.
+
+In Astra there is a tool too speed up that process and both create and import data from a CSV.
+
+✅ **Step 3a: Open Astra Data Loader**
+
+Locate the `Upload Data` button to open the Data Loader.
+
+![#](images/tutorials/dataloader-01-button.png)
+
+✅ **Step 3b: Upload the CSV file**
+
+Click the following button to download the DATASET.
+
+
+
+Click on the area *Drag n drop... * and look for the file `destinations.csv` 
+
+![#](images/tutorials/dataloader-02-upload.png)
+
+![#](images/tutorials/dataloader-03-parsed.png)
+![#](images/tutorials/dataloader-04-datamodel.png)
+![#](images/tutorials/dataloader-05-keyspace.png)
+![#](images/tutorials/dataloader-06-mail1.png)
+![#](images/tutorials/dataloader-07-mail2.png)
+![#](images/tutorials/dataloader-08-data.png)
+
+
+
+
+
+
+
+## 4. Create Astra Token
 
 To interact with our new created database through code and programming we need to create some credentials.
 
-✅ **Step 3a: Generate Token**
+✅ **Step 4a: Generate Token**
 
 - Following the [Documentation](https://docs.datastax.com/en/astra/docs/manage-application-tokens.html) create a token with `Database Admnistrator` roles.
 
