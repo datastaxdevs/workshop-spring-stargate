@@ -132,7 +132,7 @@ public abstract class AbstractController {
         // Render to view
         templateEngine.process(getSuccessView(), ctx, res.getWriter());
     }
-
+    
     
     /**
      * Create view from template.

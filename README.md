@@ -423,9 +423,42 @@ TADA your application is now configured we ccan finally play with some code.
 
 ## 8. Run some unit tests
 
+The application is now set you should be able to interact with your DB let's demonstrate some capabilities
+
+✅ **Step 8a: Use CqlSession**
+
+Interaction with Cassandra are implemented in Java through drivers and the main Class is `CqlSession`. 
+
+Higher level framework liike Spring , Spring Data, or even quarkus will rely on this object so let's make sure it is part of your Spring context with a `@SpringBootTest`
+
+```bash
+mvn test -Dtest=com.datastax.demo.stargate.Ex1_UseCqlSessionTest
 ```
-todo
+
+**👁️ Expected output**
+
+```bash
+[..]
++ Code=38, name='Leominor', 
++ Code=39, name='Leo', 
+[OK] - Test Successfully you ROCK !
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.42 s - in com.datastax.demo.stargate.Ex1_UseCqlSessionTest
+18:23:34.167 INFO  com.datastax.stargate.sdk.StargateClient      : Closing CqlSession.
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+-----------------------------------------------------------------------[INFO] BUILD SUCCESS
+-----------------------------------------------------------------------[INFO] Total time:  13.985 s
+[INFO] Finished at: 2021-04-27T18:23:34+02:00
+------------------------------------------------------------------------
 ```
+
+✅ **Step 8b: Working With Spring Data**
+
+Spring Data allow some Mapping `Object <=> Table` based on annotation at the java bean level. Then By convention some query will be executed under the hood.
+
+```bash
+mvn test -Dtest=com.datastax.demo.stargate.Ex2_UseSpringDataTest
+```
+
 
 [🏠 Back to Table of Contents](#table-of-content)
 
@@ -466,7 +499,7 @@ Your application is now started you should have a look to the logs here
 
 ✅ **Step 9b: Open the application**
 
-Are you ready ? Now is the time to play the DEMO 
+Are you ready ? Now is the time to play the DEMO  
 
 ```bash
 $(gp url 8080)
