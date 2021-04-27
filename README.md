@@ -29,19 +29,19 @@ It doesn't matter if you join our workshop live or you prefer to do at your own 
 ## Table of content
 
 1. [Create Astra Instance](#1-create-astra-instance)
-2. [Create Tables and insert data](#2-create-table-and-load-data)
-3. [Load dataSet as a CSV](#)
-4. [Create Astra Token](#3-create-astra-token)
-5. [Launch Gitpod](#)
-6. [Know your Gitpod](#)
-7. [Setup your Application](#)
-8. [Run Unit tests](#)
-9. [Run the Application](#)
-10. [Using Stargate Rest API](#)
-11. [Using Stargate Document API](#)
-11. [Using Stargate GraphQL API](#)
-12. [Walkthrough Stargate SDK](#)
-13. [Homeworks](#)
+2. [Create Tables and insert data](#2-create-table-and-insert-data)
+3. [Load dataSet as a CSV](#3-load-dataset-as-a-csv)
+4. [Create Astra Token](#4-create-astra-token)
+5. [Launch Gitpod](#5-launch-gitpod)
+6. [Know your Gitpod](#6-know-your-gitpod)
+7. [Setup your Application](#7-setup-your-application)
+8. [Run Unit tests](#8-run-some-unit-tests)
+9. [Run the Application](#9-run-the-application)
+10. [Using Stargate Rest API](#10-using-stargate-rest-api)
+11. [Using Stargate Document API](#11-using-stargate-document-api)
+11. [Using Stargate GraphQL API](#12-walthrough-sdk)
+12. [Walkthrough Stargate SDK](#13-homeworks)
+13. [Homeworks](#14-happy-end)
 
 ## 1. Create Astra Instance
 
@@ -77,7 +77,7 @@ The status will change to `Active` when the database is ready, this will only ta
 
 [🏠 Back to Table of Contents](#table-of-content)
 
-## 2. Create Table and inser data
+## 2. Create Table and insert data
 
 Once the database is created we want to create the tables to insert Data.
 
@@ -394,6 +394,14 @@ cd /workspace/workshop-spring-stargate/stargate-demo && mvn clean package instal
 [🏠 Back to Table of Contents](#table-of-content)
 
 ## 7. Setup your application
+
+To run the application you need to provide the credentials and identifier to the application.
+
+- Open the file `stargate-demo/src/main/resources/application.yml` as show below.
+
+- Replace `client-id`, `clientSecret`, `application-token` with values shown on the Astra token screen or using the CSV token file tyour dowloaded before.
+
+
 
 **👁️ Expected output**
 
