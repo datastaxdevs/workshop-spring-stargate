@@ -9,7 +9,14 @@ tasks:
   - name: build-stargate
     init: |
       cd /workspace/workshop-spring-stargate/stargate-demo && mvn clean package install -Dmaven.test.skip=true
-ports:
+  - name: Open Welcome File
+    command: |
+      WelcomeFile='/workspace/workshop-spring-stargate/README.md'
+      # gp open won't work until the IDE GUI is ready
+      until gp open ${WelcomeFile}; do sleep 1; done
+      # Safe to open more files from now on
+      gp open '/workspace/workshop-spring-stargate/stargate-demo/src/main/resources/application.yml'
+ports: 
   - port: 8080
     onOpen: open-browser 
 
