@@ -185,42 +185,105 @@ Inserting a couple of values with CQLSH is great but quite verbose right ? we cr
 
 In Astra there is a tool too speed up that process and both create and import data from a CSV.
 
-✅ **Step 3a: Open Astra Data Loader**
+✅ **Step 3a: Download the dataset**
+
+Click the following button to download the DATASET. 
+
+> *If the file open in the browser save it with the name `destinations.csv`. This is important as the filename will be the table name.*
+
+<p align="left">
+<a href="https://raw.githubusercontent.com/datastaxdevs/workshop-spring-stargate/main/dataset/destinations.csv">
+ <img src="https://dabuttonfactory.com/button.png?t=Download Dataset&f=Roboto-Bold&ts=26&tc=fff&hp=45&vp=20&c=11&bgt=unicolored&bgc=15d798" />
+</a>
+</p>
+
+✅ **Step 3b: Open Astra Data Loader**
 
 Locate the `Upload Data` button to open the Data Loader.
 
 ![#](images/tutorials/dataloader-01-button.png)
 
-✅ **Step 3b: Upload the CSV file**
+✅ **Step 3c: Upload the dataset**
 
-Click the following button to download the DATASET.
-
-
-
-Click on the area *Drag n drop... * and look for the file `destinations.csv` 
+Click on the area *Drag n drop a single file* and look for the file `destinations.csv` on your machine, this file has been downloaded in step **3a**.
 
 ![#](images/tutorials/dataloader-02-upload.png)
 
+Once the file has been upload notive the `Upload Successful` message in green. You can now click `NEXT`
+
+✅ **Step 3d: Define the target table**
+
+- Locate the field Table Name and make sure it is set to `destinations`
+
 ![#](images/tutorials/dataloader-03-parsed.png)
+
+Scroll down to show the the **Keys and Clustering** part of the screen and enter the following 
+
+- `galaxy` will be our partition key (assuming there are less than 100.000 stargate in our galaxy) and a lot of galaxy ^^.
+
+- `name` will be our clustering key in order to ensure unicity.
+
+- You can now click `NEXT`
+
 ![#](images/tutorials/dataloader-04-datamodel.png)
+
+✅ **Step 3e: Define the target keyspace**
+
+- In the **Target Keyspace** combo box find and select our keyspace `stargate`
+
+- Then click `NEXT`
+
 ![#](images/tutorials/dataloader-05-keyspace.png)
+
+✅ **Step 3f: Show Data**
+
+You will get an email informing you that the batch has been scheduled.
+
 ![#](images/tutorials/dataloader-06-mail1.png)
+
+A few seconds later your get another email to tell you the data has been inserted.
+
 ![#](images/tutorials/dataloader-07-mail2.png)
+
+Using the CQL Console enter now the CQL command command from the email:
+
+```sql
+SELECT * FROM stargate.destinations LIMIT 10
+```
+
+**👁️ Expected output**
 ![#](images/tutorials/dataloader-08-data.png)
 
+❓ Find the CQL Command to give us the coordinates in order to go on planet Chulak in our galaxy.
 
+<details><summary><b>Click to view Solution</b></summary>
+<p>
 
+```sql
+SELECT chevron1,chevron2,chevron3,chevron4,chevron5,chevron6 FROM stargate.destinations WHERE galaxy='Milky Way' and name='Chulak';
+```
 
+</p>
+</details>
 
+ Yes now we do have the cartouche `9,2,23,16,37,20`
 
+![#](images/glyphs/009glyph-scorpio.jpg?raw=true)
+![#](images/glyphs/002glyph-crater.jpg?raw=true)
+![#](images/glyphs/023glyph-triangulum.jpg?raw=true)
+![#](images/glyphs/016glyph-piscesaustrinus.jpg?raw=true)
+![#](images/glyphs/037glyph-sextans.jpg?raw=true)
+![#](images/glyphs/020glyph-sculptor.jpg?raw=true) XXXXX  ![#](images/glyphs/001glyph-earth.jpg?raw=true)
 
 ## 4. Create Astra Token
 
-To interact with our new created database through code and programming we need to create some credentials.
+🎉🎉 **Congratulations** we do have both chevrons and coordinates of our destination. 
+
+To save *Teal'c* from *Apophysis* we still need to create a **token** that we will use as our credentials.
 
 ✅ **Step 4a: Generate Token**
 
-- Following the [Documentation](https://docs.datastax.com/en/astra/docs/manage-application-tokens.html) create a token with `Database Admnistrator` roles.
+Following the [Documentation](https://docs.datastax.com/en/astra/docs/manage-application-tokens.html) create a token with `Database Admnistrator` roles.
 
 - Go the `Organization Settings`
 
@@ -228,7 +291,10 @@ To interact with our new created database through code and programming we need t
 
 - Pick the role `Database Admnistrator` on the select box
 
+- Click Generate token
+
 **👁️ Walkthrough**
+
 ![image](images/tutorials/astra-create-token.gif?raw=true)
 
 This is what the token page looks like. You can now download the values as a CSV. We will need those values but you can also keep this window open.
@@ -242,6 +308,8 @@ Notice the clipboard icon at the end of each value.
 - `clientSecret:` We will use it as a password to contact Cassandra
 
 - `appToken:` We will use it as a api Key to interact with APIS.
+
+To know more about roles of each token you can have a look to [this video.](https://www.youtube.com/watch?v=nRqu44W-bMU)
 
 ## 4. Launch Gitpod
 
