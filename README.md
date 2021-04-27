@@ -13,11 +13,18 @@ Which better business domain than the TV Show **Stargate** hoping it will not br
 
 ![SplashScreen](images/tutorials/pic-travel.png?raw=true)
 
-
 ℹ️ **Frequently asked questions**
 
 - *Can I run the workshop on my computer?*
 > There is nothing preventing you from running the workshop on your own machine. If you do so, you will need *java jdk11+*, *Maven*, an IDE like *VSCode, IntelliJ, Eclipse,Spring STS*. You will have to adapt commands and paths based on your environment and install the dependencies by yourself. **We won't provide support** to keep on track with schedule.
+
+## Materials for the Session
+
+It doesn't matter if you join our workshop live or you prefer to do at your own pace, we have you covered. In this repository, you'll find everything you need for this workshop:
+
+- [Slide deck](./materials/slides.pdf)
+- [Discord chat](https://bit.ly/cassandra-workshop)
+- [Questions and Answers](https://community.datastax.com/)
 
 ## Table of content
 
@@ -34,7 +41,7 @@ Which better business domain than the TV Show **Stargate** hoping it will not br
 11. [Using Stargate Document API](#)
 11. [Using Stargate GraphQL API](#)
 12. [Walkthrough Stargate SDK](#)
-
+13. [Homeworks](#)
 
 ## 1. Create Astra Instance
 
@@ -64,12 +71,13 @@ You will see your new database `pending` in the Dashboard.
 
 The status will change to `Active` when the database is ready, this will only take 2-3 minutes. You will also receive an email when it is ready.
 
-**👁️ Walkthough**
+**👁️ Walkthrough**
 
 ![image](images/tutorials/astra-create-db.gif?raw=true)
 
+[🏠 Back to Table of Contents](#table-of-content)
 
-## 2. Create Table and load data
+## 2. Create Table and inser data
 
 Once the database is created we want to create the tables to insert Data.
 
@@ -179,6 +187,8 @@ select count(*) from stargate.chevrons;
 select code,name from stargate.chevrons where area='Milky Way';
 ```
 
+[🏠 Back to Table of Contents](#table-of-content)
+
 ## 3. Load dataSet as a CSV
 
 Inserting a couple of values with CQLSH is great but quite verbose right ? we created the table and insert a couple of values.
@@ -266,7 +276,7 @@ SELECT chevron1,chevron2,chevron3,chevron4,chevron5,chevron6 FROM stargate.desti
 </p>
 </details>
 
- Yes now we do have the cartouche `9,2,23,16,37,20`
+ Yes now we do have the cartouche `9,2,23,16,37,20` ([You can check that we are correct](http://stargate-sg1-solutions.com/wiki/Chulak))
 
 ![#](images/glyphs/009glyph-scorpio.jpg?raw=true)
 ![#](images/glyphs/002glyph-crater.jpg?raw=true)
@@ -274,6 +284,8 @@ SELECT chevron1,chevron2,chevron3,chevron4,chevron5,chevron6 FROM stargate.desti
 ![#](images/glyphs/016glyph-piscesaustrinus.jpg?raw=true)
 ![#](images/glyphs/037glyph-sextans.jpg?raw=true)
 ![#](images/glyphs/020glyph-sculptor.jpg?raw=true) XXXXX  ![#](images/glyphs/001glyph-earth.jpg?raw=true)
+
+[🏠 Back to Table of Contents](#table-of-content)
 
 ## 4. Create Astra Token
 
@@ -311,7 +323,9 @@ Notice the clipboard icon at the end of each value.
 
 To know more about roles of each token you can have a look to [this video.](https://www.youtube.com/watch?v=nRqu44W-bMU)
 
-## 4. Launch Gitpod
+[🏠 Back to Table of Contents](#table-of-content)
+
+## 5. Launch Gitpod
 
 [Gitpod](https://www.gitpod.io/) is an IDE 100% online based on Eclipse Theia. To initialize your environment simply click on the button below *(CTRL + Click to open in new tab)* You will be asked for you github account.
 
@@ -321,17 +335,17 @@ To know more about roles of each token you can have a look to [this video.](http
 
 *The screenshot may be slightly different based on your default skin and a few edits in the read me.*
 
-![TodoBackendClient](https://github.com/DataStax-Academy/workshop-spring-data-cassandra/blob/main/images/gitpod-home.png?raw=true)
-
-You can be asked to import the project, please accept to have java features enabled for you project.
-
-![TodoBackendClient](https://github.com/DataStax-Academy/workshop-spring-data-cassandra/blob/main/images/import.png?raw=true)
+![gitpod](images/tutorials/gitpod-01-home.png?raw=true)
 
 **That's it.** Gitpod provides all tools we will need today including `Maven` and exporting port `8080`. At initialization of the workspace we schedule a `mvn clean install` to download dependencies.
 
 Also you may have noticed there is a build happening - even before we get started. The sample project already exists and loading the developer enviroment triggers a build to download all the maven dependencies so you don't have to.
 
-## 5. Know your gitpod
+[🏠 Back to Table of Contents](#table-of-content)
+
+## 6. Know your gitpod
+
+✅ **Step 6a: Know your public URL**
 
 The workshop application has opened with an ephemeral URL. To know the URL where your application endpoint will be exposed you can run the following command in the terminal:
 
@@ -341,31 +355,111 @@ gp url 8080
 
 **👁️ Expected output**
 
-![TodoBackendClient](https://github.com/DataStax-Academy/workshop-spring-data-cassandra/blob/main/images/gitpod-url.png?raw=true)
+![gitpod](images/tutorials/gitpod-02-url.png?raw=true)
 
-🚀 **Let's get starting**
+✅ **Step 6b: Validate SDK is installed**
 
-To move to branch `PART1`, in a terminal use the following command. 
+In the terminal make sure that the pre-built phase has been successful with the following command.
 
-- You should read the instructions in gitpod now as moving to the next branch will update this README with the new instructions.
+```bash
+ls -l /workspace/workshop-spring-stargate/astra-sdk-java/
+```
 
-- When you move from one branch to another using checkout you will have the workspace populated with the solution. Your local changes will be lost.
+**👁️ Expected output**
 
-## 6. Application Setup
+![gitpod](images/tutorials/gitpod-03-sdk.png?raw=true)
+
+<details><summary><b>If you got an error - here what to do</b></summary>
+<p>
+
+```bash
+cd /workspace/workshop-spring-stargate/
+git clone https://github.com/datastax/astra-sdk-java.git
+cd /workspace/workshop-spring-stargate/astra-sdk-java &&   mvn clean install -Dmaven.test.skip=true
+```
+</p>
+</details>
+
+✅ **Step 6c: Build the project**
+
+- Using maven build the project and download its dependencies.
+
+```bash
+cd /workspace/workshop-spring-stargate/stargate-demo && mvn clean package install -Dmaven.test.skip=true
+```
+**👁️ Expected output**
+
+![gitpod](images/tutorials/gitpod-04-build.png?raw=true)
+
+[🏠 Back to Table of Contents](#table-of-content)
+
+## 7. Setup your application
+
+**👁️ Expected output**
+
+![gitpod](images/tutorials/gitpod-05-appyml.png?raw=true)
+
+
 
 Edit the configuraton file
+[🏠 Back to Table of Contents](#table-of-content)
 
-## 7. CRUD with Spring Data
 
-## 8. Start the Application
+## 8. Run some unit tests
 
-```
+[🏠 Back to Table of Contents](#table-of-content)
+
+## 9. Run the application
+
+```bash
 mvn spring-boot:run
 ```
 
-## 9. Using Stargate API
+[🏠 Back to Table of Contents](#table-of-content)
 
-## 10. Using SDK
+## 10. Using Stargate Rest API
 
+[🏠 Back to Table of Contents](#table-of-content)
 
+## 11. Using Stargate Document API
 
+[🏠 Back to Table of Contents](#table-of-content)
+
+## 12. Walthrough SDK
+
+[🏠 Back to Table of Contents](#table-of-content)
+
+## 13. Homeworks
+
+<img src="https://user-images.githubusercontent.com/1742301/113891771-aeaf2f00-97c5-11eb-844e-c4df5d7c4cc9.png" width="200" align="right" />
+
+Don't forget to complete your upgrade and get your verified skill badge! Finish and submit your homework!
+
+1. Complete the practice steps 1-4 from this repository as described below. Make screenshots of the last step (load data with DSBulk)
+2. Complete scenario [Cassandra Data Modeling](https://www.datastax.com/dev/scenario/try-it-out-cassandra-data-modeling) and make a screenshot of the "congratulations" page.
+3. Submit your homework [here](https://github.com/datastaxdevs/workshop-sql-to-nosql-migration/issues/new?assignees=HadesArchitect&labels=homework%2C+pending&template=homework-assignment.md&title=%5BHW%5D+%3CNAME%3E)
+
+That's it, you are done! Expect an email next week!
+
+[🏠 Back to Table of Contents](#table-of-content)
+
+## 14. Happy END
+
+Congratulation your made it to the END.
+
+**💚 Share the love**
+
+<a href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/datastaxdevs/workshop-spring-stargate"><img src="images/tutorials/share-facebook.png"/></a>
+
+<a href="https://twitter.com/intent/tweet?url=https://github.com/datastaxdevs/workshop-spring-stargate&text=I attended a wonderful workshop today , thank you @Datastax, @clunven, @sonicdmg"><img src="images/tutorials//share-twitter.png"/></a>
+
+<a href="https://www.linkedin.com/shareArticle?mini=true&url=https://github.com/datastaxdevs/workshop-spring-stargate&title=&summary=I attended a wonderful workshop today , thank you @Datastax, @clunven, @sonicdmg&source="><img src="images/tutorials/share-linkedin.png"/></a>
+
+**🧑🏻‍🤝‍🧑🏽 Let's get in touch**
+
+| ![B](images/tutorials/chris.png) | ![B](images/tutorials/david.png) | ![B](images/tutorials/cedrick.png)|
+|--- | --- | --- |
+| Aleks Volochnev <br>[@hadesarchitect](https://github.com/kidrecursive) | David Gilardi <br>[@SonicDMG](https://github.com/SonicDMG)| Cedrick Lunven<br>[@clun](https://github.com/clun)|
+
+---
+[![thankyou](images/tutorials/thankyou.gif)]()
