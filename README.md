@@ -481,7 +481,6 @@ We can also query the destination table to find coordinates:
 mvn test -Dtest=com.datastax.demo.stargate.Ex3_UseSpringDataDestinationTest
 ```
 
-
 [🏠 Back to Table of Contents](#table-of-content)
 
 ## 9. Run the application
@@ -519,28 +518,51 @@ Your application is now started you should have a look to the logs here
 
 ![gitpod](images/tutorials/gitpod-06-start.png?raw=true)
 
-✅ **Step 9b: Open the application**
+✅ **Step 9b: Open a new terminal in gitpod**
 
-Are you ready ? Now is the time to play the DEMO. It is better to use 
+The application is running on our first terminal. To enter new commands please create a new terminal in gitpod.
 
+![gitpod](images/tutorials/new-terminal.png?raw=true)
 
+✅ **Step 9c: Open the application**
+
+Are you ready ? Now is the time to play the DEMO.
+
+It is better to use a dedicate TAB to open the application in full screen. Use this command to show the URL.
 
 ```bash
-$(gp url 8080)
+gp url 8080
 ```
 
-```bash
-gp preview $(gp url 8080)/
+If you hove the link with your cursor gitpod propose you too open on a new tab click `Follow link`.
+
+![gitpod](images/tutorials/follow-link.png?raw=true)
+
+✅ **Step 9d: Play the demo**
+
+- Click the Stargate logo, the music start if it not start automatically
+
+![SplashScreen](images/tutorials/demo-home.png?raw=true)
+
+- Click the `chrevrons` in the order of your choice the destination is fixed and set to CHULAK as of today. This is the code of the controller.
+
+```java
+HomeBean hb = new HomeBean();
+hb.setDestination(repo1
+    .findById(new DestinationPrimaryKey(
+        "Milky Way", "Chulak")).get());
+chevronRepository.findByKeyArea("Milky Way")
+                 .forEach(chevron -> {
+                chevronMap.put(chevron.getKey().getCode(), chevron.getName());
+            });
+}
+hb.setChevronMap(chevronMap);
+ctx.setVariable("homebean", hb);
 ```
 
-Click the Stargate logo, the music start
+![SplashScreen](images/tutorials/pic-travel.png?raw=true)
 
-Click the Chrevrons in the order of your choice
-
-Sorry by the destination is fixed in the demo (just a UI thing)
-
-
-
+Congratulations you Played the demo !
 
 [🏠 Back to Table of Contents](#table-of-content)
 
@@ -548,7 +570,7 @@ Sorry by the destination is fixed in the demo (just a UI thing)
 
 ✅ **Step 10a: Open swagger in the preview**
 
-- In the logs of the application started locate the URL `REST API:` in my case it is `https://3c7fc647-c03b-4a0c-aa6b-a00dd677ac53-eu-central-1.apps.astra.datastax.com/api/rest/`. 
+- In the logs of the application locate the URL `REST API:` which look like  in my case it is `https://3c7fc647-c03b-4a0c-aa6b-a00dd677ac53-eu-central-1.apps.astra.datastax.com/api/rest/`. 
 
 - Add `swagger-ui/` as a suffix and open it in the preview
 
