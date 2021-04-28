@@ -684,23 +684,74 @@ The Astra SDK has been installed with a single starter dependency. You can have 
 
 ✅ **Step 12a: Using devops API with SDK**
 
-The follwowing unit test is a sample of using Devops API
+In a gitpod terminal use Maven to execute a unit test illustrating the usage of the `Devops API` from the SDK.
 
 ```bash
 mvn test -Dtest=com.datastax.demo.stargate.Ex4_SdkDevopsApi
 ```
 
+**Expected Output**
+
+```bash
+13:48:16.753 INFO  com.datastax.demo.stargate.Ex4_SdkDevopsApi   : Started Ex4_SdkDevopsApi in 6.184 seconds (JVM running for 7.136)
+Database 'workshops'
++ id=3c7fc647-c03b-4a0c-aa6b-a00dd677ac53
++ region=eu-central-1
++ keyspace=stargate
+```
+
 ✅ **Step 12b: Using REST API with SDK**
+
+In a gitpod terminal use Maven to execute a unit test illustrating the usage of the `REST API` from the SDK.
 
 ```bash
 mvn test -Dtest=com.datastax.demo.stargate.Ex5_SdkRestApi
 ```
 
+**Expected Output**
+
+```bash
+13:47:38.123 INFO  com.datastax.demo.stargate.Ex5_SdkRestApi     : Started Ex5_SdkRestApi in 6.375 seconds (JVM running for 7.375)
+Earth
+Crater
+Virgo
+Bootes
+Centaurus
+Libra
+Serpenscaput
+Norma
+Scorpio
+Cra
+Scutum
+Sagitarus
+Aquila
+Mic
+Capricorn
+Piscesaustrinus
+Equuleus
+Aquarius
+Pegasus
+Sculptor
+13:47:41.173 INFO  com.datastax.stargate.sdk.StargateClient      : Closing CqlSession.
+```
+
 ✅ **Step 12c: Using DOC API with SDK**
+
+In a gitpod terminal use Maven to execute a unit test illustrating the usage of the `DOC API` from the SDK.
 
 ```bash
 mvn test -Dtest=com.datastax.demo.stargate.Ex6_SdkDocApi
 ```
+
+**Expected Output**
+
+```bash
+13:46:43.360 INFO  com.datastax.demo.stargate.Ex6_SdkDocApi      : Started Ex6_SdkDocApi in 5.935 seconds (JVM running for 6.887)
+Document:
++ id=063d3fe9-8ec0-4b9b-887a-90da52ee0f51
++ email= clunven@sample.com
+```
+
 
 [🏠 Back to Table of Contents](#table-of-content)
 
