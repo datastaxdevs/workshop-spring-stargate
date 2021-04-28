@@ -2,7 +2,7 @@
 name: Homework Assignment
 about: Use this template to submit the homework
 title: "[HW] <NAME>"
-labels: homework, pending
+labels: homework,pending
 assignees: HadesArchitect
 
 ---
