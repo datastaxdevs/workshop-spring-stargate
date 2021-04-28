@@ -22,7 +22,7 @@ springdoc:
 # Properties exoected by the starter
 astra:
 
-  # Credentials to DB
+   # Credentials to DB
   client-id: <CLIENT_ID>
   client-secret: <CLIENT_SECRET>
   application-token: <APPLICATION_TOKEN>
@@ -31,4 +31,3 @@ astra:
   cloud-region: <REGION>
   database-id: <DB_ID>
   keyspace: stargate
-
