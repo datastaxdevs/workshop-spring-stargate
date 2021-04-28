@@ -763,7 +763,7 @@ Don't forget to complete your upgrade and get your verified skill badge! Finish 
 
 1. Complete the practice steps from this repository as described below. Make screenshots alongside the steps
 2. Learn more about spring in the [course](https://www.datastax.com/dev/spring) and complete scenario `Build a Spring Boot REST Service` at the bottom of the page and make a screenshot of the "congratulations" page.
-3. Submit your homework [here](https://github.com/datastaxdevs/workshop-spring-stargate/issues/new?assignees=HadesArchitect&labels=homework%2C+pending&template=homework-assignment.md&title=%5BHW%5D+%3CNAME%3E)
+3. Submit your homework [here](https://github.com/datastaxdevs/workshop-spring-stargate/issues/new?assignees=HadesArchitect&labels=homework%2Cpending&template=homework-assignment.md&title=%5BHW%5D+%3CNAME%3E)
 
 That's it, you are done! Expect an email next week!
 
