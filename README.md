@@ -706,7 +706,7 @@ mvn test -Dtest=com.datastax.demo.stargate.Ex6_SdkDocApi
 
 ## 13. Homeworks
 
-<img src="https://user-images.githubusercontent.com/1742301/113891771-aeaf2f00-97c5-11eb-844e-c4df5d7c4cc9.png" width="200" align="right" />
+<img src="https://github.com/datastaxdevs/workshop-spring-stargate/raw/main/images/tutorials/badge.png?raw=true" width="200" align="right" />
 
 Don't forget to complete your upgrade and get your verified skill badge! Finish and submit your homework!
 
