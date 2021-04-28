@@ -568,30 +568,138 @@ Congratulations you Played the demo !
 
 ## 10. Using Stargate Rest API
 
-✅ **Step 10a: Open swagger in the preview**
+The gateway [Stargate](stargate.io) allow you to execute the operations through a rest API. Let's list the chevrons.
 
-- In the logs of the application locate the URL `REST API:` which look like  in my case it is `https://3c7fc647-c03b-4a0c-aa6b-a00dd677ac53-eu-central-1.apps.astra.datastax.com/api/rest/`. 
+✅ **Step 10a: Open swagger**
+
+In the logs of the application locate the URL `REST API:` which look like `https://<DB_ID>-<DB_REGION>.apps.astra.datastax.com/api/rest/`
+
+In my case it is `https://3c7fc647-c03b-4a0c-aa6b-a00dd677ac53-eu-central-1.apps.astra.datastax.com/api/rest/`. 
 
 - Add `swagger-ui/` as a suffix and open it in the preview
 
 ```bash
-gp preview https://3c7fc647-c03b-4a0c-aa6b-a00dd677ac53-eu-central-1.apps.astra.datastax.com/api/rest/swagger-ui/
+gp preview https://<YOUR_DB_ID>-<YOUR_DB_REGION>.apps.astra.datastax.com/api/rest/swagger-ui/
 ```
 
 **👁️ Expected output**
 
 ![gitpod](images/tutorials/gitpod-07-swagger.png?raw=true)
 
+✅ **Step 10b: List Chevrons**
+
+- In the Swagger UI page locate the blue line `/v1/keyspaces/{keyspaceName}/tables/{tableName}/rows` in the block `DATA`
+
+![gitpod](images/tutorials/restapi-retrieve-rows.png?raw=true)
+
+- Click the button `Try it Out` on the top right hand corner.
+
+- Enter the following values
+
+| FIELD | VALUE|
+|--- | --- |
+| **X-Cassandra-Token** | `AstraCS....` (*your token*) |
+| **keyspaceName** | `stargate` |
+| **tableName** | `chevrons` |
+| **pageSize** | *let it blank* |
+| **pageState** | *let it blank* |
+
+- Click the button `Execute`
+
+**Expected output**
+
+![gitpod](images/tutorials/restapi-retrieve-rows-2.png?raw=true)
+
+
 [🏠 Back to Table of Contents](#table-of-content)
 
 ## 11. Using Stargate Document API
+
+The REST API covers the same features as the CQL interface and you need to know your schema.
+
+Stargate also provide a way to insert **schemaless** JSON Document as you would do with a document oriented datbase, you are welcomed.
+
+✅ **Step 11a: Create a document**
+
+- Locate `
+​/v2​/namespaces​/{namespace-id}​/collections​/{collection-id}
+Create a new document` in the block `DOCUMENT`
+
+- Click the button `Try it Out` on the top right hand corner.
+
+- Enter the following values
+
+
+| FIELD | VALUE|
+|--- | --- |
+| **X-Cassandra-Token** | `AstraCS....` (*your token*) |
+| **namespace-id** | `stargate` |
+| **collection-id** | `sampledoc` |
+| **pageSize** | *let it blank* |
+| **body** |
+```json
+{
+   "videoid":"e466f561-4ea4-4eb7-8dcc-126e0fbfd573",
+     "email":"clunven@sample.com",
+     "title":"A video",
+     "upload":"2020-02-26 15:09:22 +00:00",
+     "url": "http://google.fr",
+     "frames": [1,2,3,4],
+     "tags":   [ "cassandra","accelerate", "2020"],
+     "formats": { 
+        "mp4": {"width":1,"height":1},
+        "ogg": {"width":1,"height":1}
+     }
+}
+```
+
+**Expected output**
+
+![gitpod](images/tutorials/docapi-createdoc.png?raw=true)
+
+- Click the button `Execute`
+
+The api will create a new table for the collection and insert the JSON document. A new unique identifier is generated and returned as `documentId`.
+
+**Expected output**
+![gitpod](images/tutorials/docapi-createdoc-2.png?raw=true)
 
 [🏠 Back to Table of Contents](#table-of-content)
 
 ## 12. Walthrough SDK
 
+Well you had an overview about the Apis exposed by Stargate. There is also a [GraphQL API if you want to know more](https://docs.datastax.com/en/astra/docs/using-the-astra-graphql-api.html).
+
+A SDK or *Software Developement Kit* is used here to ease the usage of each API. It is also the one creating a bean `CqlSession` that will be use with Spring Data Cassandra as is.
+
+The Astra SDK has been installed with a single starter dependency. You can have more informations [here](https://github.com/datastax/astra-sdk-java/wiki)
+
+```xml
+<dependency>
+  <groupId>com.datastax.astra</groupId>
+  <artifactId>astra-spring-boot-starter</artifactId>
+  <version>0.1.0</version>
+</dependency>
+```
+
+✅ **Step 12a: Using devops API with SDK**
+
+The follwowing unit test is a sample of using Devops API
+
 ```bash
 mvn test -Dtest=com.datastax.demo.stargate.Ex4_SdkDevopsApi
+```
+
+✅ **Step 12b: Using REST API with SDK**
+
+```bash
+mvn test -Dtest=com.datastax.demo.stargate.Ex5_SdkRestApi
+```
+
+✅ **Step 12c: Using DOC API with SDK**
+
+```bash
+mvn test -Dtest=com.datastax.demo.stargate.Ex6_SdkDocApi
 ```
 
 [🏠 Back to Table of Contents](#table-of-content)
@@ -602,9 +710,9 @@ mvn test -Dtest=com.datastax.demo.stargate.Ex4_SdkDevopsApi
 
 Don't forget to complete your upgrade and get your verified skill badge! Finish and submit your homework!
 
-1. Complete the practice steps 1-4 from this repository as described below. Make screenshots of the last step (load data with DSBulk)
-2. Complete scenario [Cassandra Data Modeling](https://www.datastax.com/dev/scenario/try-it-out-cassandra-data-modeling) and make a screenshot of the "congratulations" page.
-3. Submit your homework [here](https://github.com/datastaxdevs/workshop-sql-to-nosql-migration/issues/new?assignees=HadesArchitect&labels=homework%2C+pending&template=homework-assignment.md&title=%5BHW%5D+%3CNAME%3E)
+1. Complete the practice steps from this repository as described below. Make screenshots alongside the steps
+2. Learn more about spring in the [course](https://www.datastax.com/dev/spring) and complete scenario `Build a Spring Boot REST Service` at the bottom of the page and make a screenshot of the "congratulations" page.
+3. Submit your homework [here](https://github.com/datastaxdevs/workshop-spring-stargate/issues/new?assignees=HadesArchitect&labels=homework%2C+pending&template=homework-assignment.md&title=%5BHW%5D+%3CNAME%3E)
 
 That's it, you are done! Expect an email next week!
 
