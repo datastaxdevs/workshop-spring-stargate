@@ -1,6 +1,8 @@
 package com.datastax.demo.stargate.web;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.thymeleaf.context.WebContext;
 
 import com.datastax.demo.stargate.chevrons.ChevronRepository;
+import com.datastax.demo.stargate.destinations.Destination;
 import com.datastax.demo.stargate.destinations.DestinationPrimaryKey;
 import com.datastax.demo.stargate.destinations.DestinationRepository;
 
@@ -34,7 +37,11 @@ public class HomeController extends AbstractController {
     private ChevronRepository chevronRepository;
     
     /** Reference to the chevron URL. */
-    private Map<Integer, String> chevronMap= new HashMap<>();
+    private static Map<Integer, String> chevronMap= new HashMap<>();
+    
+    private static List<Destination> catalog = new ArrayList<>();
+    
+    private static final String GALAXY = "Milky Way";
     
     /** {@inheritDoc} */
     @Override
@@ -46,19 +53,30 @@ public class HomeController extends AbstractController {
     @Override
     public void get(HttpServletRequest req, HttpServletResponse res, WebContext ctx) 
     throws Exception {
-        HomeBean hb = new HomeBean();
-        // Put it in the webs
-        hb.setDestination(destinationRepository
-                .findById(new DestinationPrimaryKey("Milky Way", "Chulak"))
-                .get());
-        
         // Populate Chevrons
         if (chevronMap.isEmpty()) {
-            chevronRepository.findByKeyArea("Milky Way").forEach(chevron -> {
+            chevronRepository.findByKeyArea(GALAXY).forEach(chevron -> {
                 chevronMap.put(chevron.getKey().getCode(), chevron.getName());
             });
         }
+        if (catalog.isEmpty()) {
+            catalog = destinationRepository.findByKeyGalaxy(GALAXY);
+        }
+        String planetName = "Chulak";
+        String paramPanet = req.getParameter("planetName");
+        if (null != paramPanet && paramPanet.length() > 0) {
+            planetName = paramPanet;
+        }
+        
+        HomeBean hb = new HomeBean();
         hb.setChevronMap(chevronMap);
+        hb.setCatalog(catalog);
+        
+        // Put it in the webs
+        hb.setDestination(destinationRepository
+                .findById(new DestinationPrimaryKey(GALAXY, planetName))
+                .get());
+        
         ctx.setVariable("homebean", hb);
     }
     

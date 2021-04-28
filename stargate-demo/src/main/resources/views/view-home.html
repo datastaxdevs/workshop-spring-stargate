@@ -45,8 +45,21 @@
 			</div>
 			</div>
 			
+			<div id="planetList" 
+			  style="font-size:20px;padding:20px;color:white;position:absolute;top:150px;left:50px;border:1px solid white">
+			 <p style="color:orange;font-size:20px">Planet List</p>
+			 <ul th:if="${homebean != null}">
+			  <li th:each="planet : ${homebean.catalog}" class="nav-item">
+                <a th:href="@{'?planetName=' + ${planet.key.name}}" >
+                  <p><span th:text="${planet.key.name}" ></span></p>
+                </a>
+              </li>
+			 </ul>
+			 </div>
+			 
+			
 			<div id="cartouche" 
-			  style="font-size:20px;padding:20px;color:white;position:absolute;top:150px;right:100px;border:1px solid white">
+			  style="font-size:20px;padding:20px;color:white;position:absolute;top:150px;right:50px;border:1px solid white">
 			 <p style="color:orange;font-size:20px">Destination Dialed: <img src="img/chevrons/001.svg" style="height:40px;-webkit-filter:invert(1);filter:invert(1);" />
 			 </p>
 			 

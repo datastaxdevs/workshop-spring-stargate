@@ -1,7 +1,9 @@
 package com.datastax.demo.stargate.web;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.datastax.demo.stargate.destinations.Destination;
@@ -18,6 +20,9 @@ public class HomeBean implements Serializable {
     private Destination destination;
     
     private Map<Integer, String> chevronMap = new HashMap<>();
+    
+    /** List of available planets. */
+    private List<Destination> catalog = new ArrayList<>();
     
     /**
      * Getter accessor for attribute 'destination'.
@@ -55,6 +60,25 @@ public class HomeBean implements Serializable {
      */
     public void setChevronMap(Map<Integer, String> chevronMap) {
         this.chevronMap = chevronMap;
+    }
+
+    /**
+     * Getter accessor for attribute 'catalog'.
+     *
+     * @return
+     *       current value of 'catalog'
+     */
+    public List<Destination> getCatalog() {
+        return catalog;
+    }
+
+    /**
+     * Setter accessor for attribute 'catalog'.
+     * @param catalog
+     * 		new value for 'catalog '
+     */
+    public void setCatalog(List<Destination> catalog) {
+        this.catalog = catalog;
     }
     
 
