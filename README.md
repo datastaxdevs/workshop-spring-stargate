@@ -456,7 +456,7 @@ mvn test -Dtest=com.datastax.demo.stargate.Ex1_UseCqlSessionTest
 Spring Data allow some Mapping `Object <=> Table` based on annotation at the java bean level. Then by convention CQL query will be executed under the hood.
 
 ```bash
-mvn test -Dtest=com.datastax.demo.stargate.Ex2_UseSpringDataTest
+mvn test -Dtest=com.datastax.demo.stargate.Ex2_UseSpringDataChevronTest
 ```
 
 This test perform 3 operations:
