@@ -47,7 +47,7 @@ It doesn't matter if you join our workshop live or you prefer to do at your own 
 
 **`ASTRA`** is the simplest way to run Cassandra with zero operations at all - just push the button and get your cluster. No credit card required, $25.00 USD credit every month, roughly 5M writes, 30M reads, 40GB storage monthly - sufficient to run small production workloads.  
 
-✅ **Step 1a. If you do have an account yet register and sign In to Astra this is FREE and NO CREDIT CARD asked** [https://astra.datastax.com](https://dtsx.io/workshop): You can use your `Github`, `Google` accounts or register with an `email`.
+✅ **Step 1a. If you do have an account yet register and sign In to Astra this is FREE and NO CREDIT CARD asked** [https://astra.datastax.com](https://astra.new/w1): You can use your `Github`, `Google` accounts or register with an `email`.
 
 _Make sure to chose a password with minimum 8 characters, containing upper and lowercase letters, at least one number and special character_
 
@@ -67,7 +67,7 @@ _You can technically use whatever you want and update the code to reflect the ke
 
 You will see your new database `pending` in the Dashboard.
 
-![my-pic](https://github.com/datastaxdevs/shared-assets/blob/master/astra/dashboard-pending-1000-update.png?raw=true)
+![my-pic](images/tutorials/db-pending.png?raw=true)
 
 The status will change to `Active` when the database is ready, this will only take 2-3 minutes. You will also receive an email when it is ready.
 
@@ -197,7 +197,7 @@ In Astra there is a tool too speed up that process and both create and import da
 
 ✅ **Step 3a: Download the dataset**
 
-Click the following button to download the DATASET. 
+To download the DATASET, **right-click** *(or CTRL + Click to open in new tab)* the button below and download the targat file on your machine.
 
 > *If the file open in the browser save it with the name `destinations.csv`. This is important as the filename will be the table name.*
 
@@ -229,7 +229,7 @@ Once the file has been upload notive the `Upload Successful` message in green. Y
 
 Scroll down to show the the **Keys and Clustering** part of the screen and enter the following 
 
-- `galaxy` will be our partition key (assuming there are less than 100.000 stargate in our galaxy) and a lot of galaxy ^^.
+- `galaxy` will be our partition key (assuming there are less than 100 000 stargates in our galaxy) and a lot of galaxy ^^.
 
 - `name` will be our clustering key in order to ensure unicity.
 
@@ -247,24 +247,24 @@ Scroll down to show the the **Keys and Clustering** part of the screen and enter
 
 ✅ **Step 3f: Show Data**
 
-You will get an email informing you that the batch has been scheduled.
+After a few seconds (about 30s) ,you will get an email informing you that the batch has been scheduled.
 
 ![#](images/tutorials/dataloader-06-mail1.png)
 
-A few seconds later your get another email to tell you the data has been inserted.
+As you can see the operation here is asynchronous. About a minute later your will get another email to tell you the data has been inserted.
 
 ![#](images/tutorials/dataloader-07-mail2.png)
 
 Using the CQL Console enter now the CQL command command from the email:
 
 ```sql
-SELECT * FROM stargate.destinations LIMIT 10
+SELECT * FROM stargate.destinations LIMIT 10;
 ```
 
 **👁️ Expected output**
 ![#](images/tutorials/dataloader-08-data.png)
 
-❓ Find the CQL Command to give us the coordinates in order to go on planet Chulak in our galaxy.
+❓ **QUIZZ:** Try to find by yourself the CQL statement to retrieve us the coordinates of planet Chulak in our galaxy. 
 
 <details><summary><b>Click to view Solution</b></summary>
 <p>
