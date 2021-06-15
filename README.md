@@ -28,7 +28,7 @@ It doesn't matter if you join our workshop live or you prefer to do at your own 
 
 ## Table of content
 
-1. [Create Astra DB Instance](#1-create-astra-instance)
+1. [Create Astra DB Instance](#1-create-astra-db-instance)
 2. [Create Tables and insert data](#2-create-table-and-insert-data)
 3. [Load dataSet as a CSV](#3-load-dataset-as-a-csv)
 4. [Create Astra Token](#4-create-astra-token)
@@ -43,11 +43,11 @@ It doesn't matter if you join our workshop live or you prefer to do at your own 
 12. [Walkthrough Stargate SDK](#13-homeworks)
 13. [Homeworks](#14-happy-end)
 
-## 1. Create Astra Instance
+## 1. Create Astra DB Instance
 
 **`ASTRA DB`** is the simplest way to run Cassandra with zero operations at all - just push the button and get your cluster. No credit card required, $25.00 USD credit every month, roughly 5M writes, 30M reads, 40GB storage monthly - sufficient to run small production workloads.  
 
-✅ **Step 1a. If you do have an account yet register and sign In to Astra this is FREE and NO CREDIT CARD asked** [https://astra.datastax.com](https://astra.datastax.com): You can use your `Github`, `Google` accounts or register with an `email`.
+✅ **Step 1a. If you do have an account yet register and sign In to Astra DB this is FREE and NO CREDIT CARD asked** [https://astra.datastax.com](https://astra.datastax.com): You can use your `Github`, `Google` accounts or register with an `email`.
 
 _Make sure to chose a password with minimum 8 characters, containing upper and lowercase letters, at least one number and special character_
 
