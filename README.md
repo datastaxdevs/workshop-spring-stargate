@@ -28,7 +28,7 @@ It doesn't matter if you join our workshop live or you prefer to do at your own 
 
 ## Table of content
 
-1. [Create Astra Instance](#1-create-astra-instance)
+1. [Create Astra DB Instance](#1-create-astra-instance)
 2. [Create Tables and insert data](#2-create-table-and-insert-data)
 3. [Load dataSet as a CSV](#3-load-dataset-as-a-csv)
 4. [Create Astra Token](#4-create-astra-token)
@@ -45,9 +45,9 @@ It doesn't matter if you join our workshop live or you prefer to do at your own 
 
 ## 1. Create Astra Instance
 
-**`ASTRA`** is the simplest way to run Cassandra with zero operations at all - just push the button and get your cluster. No credit card required, $25.00 USD credit every month, roughly 5M writes, 30M reads, 40GB storage monthly - sufficient to run small production workloads.  
+**`ASTRA DB`** is the simplest way to run Cassandra with zero operations at all - just push the button and get your cluster. No credit card required, $25.00 USD credit every month, roughly 5M writes, 30M reads, 40GB storage monthly - sufficient to run small production workloads.  
 
-✅ **Step 1a. If you do have an account yet register and sign In to Astra this is FREE and NO CREDIT CARD asked** [https://astra.datastax.com](https://astra.new/w1): You can use your `Github`, `Google` accounts or register with an `email`.
+✅ **Step 1a. If you do have an account yet register and sign In to Astra this is FREE and NO CREDIT CARD asked** [https://astra.datastax.com](https://astra.datastax.com): You can use your `Github`, `Google` accounts or register with an `email`.
 
 _Make sure to chose a password with minimum 8 characters, containing upper and lowercase letters, at least one number and special character_
 
@@ -193,7 +193,7 @@ select code,name from stargate.chevrons where area='Milky Way';
 
 Inserting a couple of values with CQLSH is great but quite verbose right ? we created the table and insert a couple of values.
 
-In Astra there is a tool too speed up that process and both create and import data from a CSV.
+In Astra DB there is a tool too speed up that process and both create and import data from a CSV.
 
 ✅ **Step 3a: Download the dataset**
 
@@ -357,30 +357,8 @@ gp url 8080
 
 ![gitpod](images/tutorials/gitpod-02-url.png?raw=true)
 
-✅ **Step 6b: Validate SDK is installed**
 
-In the terminal make sure that the pre-built phase has been successful with the following command.
-
-```bash
-ls -l /workspace/workshop-spring-stargate/astra-sdk-java/
-```
-
-**👁️ Expected output**
-
-![gitpod](images/tutorials/gitpod-03-sdk.png?raw=true)
-
-<details><summary><b>If you got an error - here what to do</b></summary>
-<p>
-
-```bash
-cd /workspace/workshop-spring-stargate/
-git clone https://github.com/datastax/astra-sdk-java.git
-cd /workspace/workshop-spring-stargate/astra-sdk-java &&   mvn clean install -Dmaven.test.skip=true
-```
-</p>
-</details>
-
-✅ **Step 6c: Build the project**
+✅ **Step 6b: Build the project**
 
 - Using maven build the project and download its dependencies.
 
@@ -409,7 +387,7 @@ To run the application you need to provide the credentials and identifier to the
 
 ✅ **Step 7b: Enter 3 values related to your DB**
 
-- In Astra go back to home page by clicking the logo
+- In Astra DB go back to home page by clicking the logo
 
 - Select you database `workshops` in the left panel and then copy values for `cloud-region` and `database-id` (clusterID) from the details page
 
