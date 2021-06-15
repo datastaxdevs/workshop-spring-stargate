@@ -10,6 +10,7 @@ import com.datastax.demo.stargate.destinations.Destination;
 
 /**
  * Web bean to be displayed on home page
+ *
  * @author Cedrick LUNVEN (@clunven)
  */
 public class HomeBean implements Serializable {

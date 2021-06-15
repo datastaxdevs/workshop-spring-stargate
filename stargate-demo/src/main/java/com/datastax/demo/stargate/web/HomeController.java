@@ -24,35 +24,34 @@ import com.datastax.demo.stargate.destinations.DestinationRepository;
  * @author Cedrick LUNVEN (@clunven)
  */
 @Controller
-@RequestMapping(value="/")
+@RequestMapping(value = "/")
 public class HomeController extends AbstractController {
-    
+
     /** Vie name. */
     private static final String HOME_VIEW = "home";
-    
+
     @Autowired
     private DestinationRepository destinationRepository;
-    
+
     @Autowired
     private ChevronRepository chevronRepository;
-    
+
     /** Reference to the chevron URL. */
-    private static Map<Integer, String> chevronMap= new HashMap<>();
-    
+    private static Map<Integer, String> chevronMap = new HashMap<>();
+
     private static List<Destination> catalog = new ArrayList<>();
-    
+
     private static final String GALAXY = "Milky Way";
-    
+
     /** {@inheritDoc} */
     @Override
     public String getSuccessView() {
         return HOME_VIEW;
     }
-    
+
     /** {@inheritDoc} */
     @Override
-    public void get(HttpServletRequest req, HttpServletResponse res, WebContext ctx) 
-    throws Exception {
+    public void get(HttpServletRequest req, HttpServletResponse res, WebContext ctx) throws Exception {
         // Populate Chevrons
         if (chevronMap.isEmpty()) {
             chevronRepository.findByKeyArea(GALAXY).forEach(chevron -> {
@@ -67,22 +66,17 @@ public class HomeController extends AbstractController {
         if (null != paramPanet && paramPanet.length() > 0) {
             planetName = paramPanet;
         }
-        
+
         HomeBean hb = new HomeBean();
         hb.setChevronMap(chevronMap);
         hb.setCatalog(catalog);
-        
-        // Put it in the webs
-        hb.setDestination(destinationRepository
-                .findById(new DestinationPrimaryKey(GALAXY, planetName))
-                .get());
-        
+        hb.setDestination(destinationRepository.findById(new DestinationPrimaryKey(GALAXY, planetName)).get());
         ctx.setVariable("homebean", hb);
+
     }
-    
+
     /** {@inheritDoc} */
     @Override
-    public void processPost(HttpServletRequest req, HttpServletResponse res, WebContext ctx) 
-    throws Exception {}
-    
+    public void processPost(HttpServletRequest req, HttpServletResponse res, WebContext ctx) throws Exception {}
+
 }
