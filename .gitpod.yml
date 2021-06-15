@@ -3,9 +3,7 @@ image:
 
 tasks:
   - name: setup
-    before: git clone https://github.com/datastax/astra-sdk-java.git
     init: |
-      cd /workspace/workshop-spring-stargate/astra-sdk-java &&   mvn clean install -Dmaven.test.skip=true
       cd /workspace/workshop-spring-stargate/stargate-demo && mvn clean package install -Dmaven.test.skip=true
 ports: 
   - port: 8080

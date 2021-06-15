@@ -22,12 +22,13 @@ springdoc:
 # Properties exoected by the starter
 astra:
 
-   # Credentials to DB
-  client-id: <CLIENT_ID>
-  client-secret: <CLIENT_SECRET>
-  application-token: <APPLICATION_TOKEN>
+  # Credentials to DB
+  client-id: KTKniowBHBCISNNfKXCmNmHD
+  client-secret: XSrP3CbE0gOibZljTJspXTZ7D-Gpe-z,IoXA1xl_YCBzvbChLq6xu7kr5JoKy9iuvQlEkaSou8_cG-2wUUWc5M1Ze7ZcjE-mbgY_vx0+NuZb8ZqjzmNH_ajcAZP3K5_U
+  application-token: AstraCS:KTKniowBHBCISNNfKXCmNmHD:50b5038dcb38f9bf6caaca40815ab06f46251f2e8f54500e8412f7b893452b90
 
   # Select an instance
-  cloud-region: <REGION>
-  database-id: <DB_ID>
+  cloud-region: eu-central-1
+  database-id: 3c7fc647-c03b-4a0c-aa6b-a00dd677ac53
   keyspace: stargate
+

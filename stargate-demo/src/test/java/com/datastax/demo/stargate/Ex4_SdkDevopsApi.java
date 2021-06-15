@@ -14,8 +14,8 @@ public class Ex4_SdkDevopsApi {
     
     @Test
     public void listAvailableDatabases() {
-        astraClient.apiDevops()
-                   .findAllDatabasesNonTerminated()
+        astraClient.apiDevopsDatabases()
+                   .databasesNonTerminated()
                    .forEach(db -> {
           System.out.println("Database '" + db.getInfo().getName() + "'");
           System.out.println("+ id=" + db.getId());

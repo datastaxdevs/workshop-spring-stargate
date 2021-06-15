@@ -17,7 +17,7 @@ public class Ex5_SdkRestApi {
     
     @Test
     public void listChevrons() {
-        astraClient.apiRest().keyspace("stargate").table("chevrons")
+        astraClient.apiStargateData().keyspace("stargate").table("chevrons")
                    .search(SearchTableQuery.builder().build(), new ChevronRowMapper())
                    .getResults().stream()
                    .map(Chevron::getName)
