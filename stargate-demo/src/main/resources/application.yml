@@ -1,7 +1,16 @@
 
 server:
   port: ${PORT:8080}
- 
+
+logging:
+  level:
+    root: WARN
+    com.datastax.demo: INFO
+    com.datastax.astra: INFO
+    com.datastax.stargate: INFO
+    com.datastax.oss: ERROR
+    org.junit.vintage: ERROR
+
 spring:
    messages:
     basename: i18n/messages  
