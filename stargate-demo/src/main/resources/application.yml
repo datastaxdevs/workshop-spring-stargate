@@ -1,10 +1,26 @@
 
 server:
   port: ${PORT:8080}
- 
+
+logging:
+  level:
+    root: WARN
+    com.datastax.demo: INFO
+    com.datastax.astra: INFO
+    com.datastax.stargate: INFO
+    com.datastax.oss: ERROR
+    org.junit.vintage: ERROR
+
 spring:
-   messages:
-    basename: i18n/messages  
+  messages:
+    basename: i18n/messages
+  thymeleaf:
+    mode: XHTML
+    prefix: classpath:views/view-
+    suffix: .html
+  jackson:
+    default-property-inclusion: non-null
+     
 springdoc:
   api-docs:
     enabled: true
@@ -19,7 +35,7 @@ springdoc:
     - group: Rest Controllers (Spring MVC)
       packages-to-scan: com.datastax.demo.stargate
       
-# Properties exoected by the starter
+# Properties exopected by the starter
 astra:
 
   # Credentials to DB

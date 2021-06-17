@@ -29,31 +29,29 @@ import org.springframework.web.bind.annotation.RestController;
  )
 public class ChevronRestController {
     
-    private ChevronRepository repo;
+    private final ChevronRepository repo;
     
     public ChevronRestController(ChevronRepository chevronRepo) {
         this.repo = chevronRepo;
     }
     
     @GetMapping
-    public List<Chevron> findAll(HttpServletRequest req) {
+    public List<Chevron> findAll() {
         return repo.findAll();
     }
  
     @GetMapping("/{area}")
-    public List<Chevron> findByArea(HttpServletRequest req, @PathVariable(value = "area") String area) {
+    public List<Chevron> findByArea(@PathVariable(value = "area") String area) {
         return repo.findByKeyArea(area);
     }
     
     @GetMapping("/{area}/{code}")
-    public ResponseEntity<Chevron> findAChevron(HttpServletRequest req, 
-            @PathVariable(value = "area") String area,
+    public ResponseEntity<Chevron> findAChevron(@PathVariable(value = "area") String area,
             @PathVariable(value = "code") int code) {
-        Optional<Chevron> chevron = repo.findById(new ChevronPrimaryKey(area, code));
-        if (chevron.isEmpty()) {
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok(chevron.get());
+         return repo.findById(new ChevronPrimaryKey(area, code))
+        		.map(ResponseEntity::ok)
+        		.orElse(ResponseEntity.notFound().build());
+        		
     }
 
 }
