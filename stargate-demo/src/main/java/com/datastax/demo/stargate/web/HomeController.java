@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import javax.annotation.PostConstruct;
 
@@ -63,10 +64,12 @@ public class HomeController {
 		HomeBean hb = new HomeBean();
         hb.setChevronMap(chevronMap);
         hb.setCatalog(catalog);
-        hb.setDestination(destinationRepository.findById(new DestinationPrimaryKey(GALAXY, planetName)).get());
-        
+        hb.setDestination(new Destination(new DestinationPrimaryKey(GALAXY, planetName), 1, 1, 1, 1, 1, 1, "ok"));
+        Optional<Destination> destination = 
+                destinationRepository.findById(
+                        new DestinationPrimaryKey(GALAXY, planetName));
+        destination.ifPresent(hb::setDestination);
         model.addAttribute("homebean", hb);
-       
         return HOME_VIEW;
     }
 }

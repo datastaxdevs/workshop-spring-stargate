@@ -25,6 +25,19 @@ public class Ex6_SdkDocApi {
     
     @Test
     public void listDocument() {
+        
+        if (!astraClient.apiStargateDocument()
+                .namespace("stargate").exist()) {
+            throw new IllegalArgumentException("Make sure you use 'stargate' as namespace");
+        }
+        
+        if (!astraClient.apiStargateDocument()
+                .namespace("stargate")
+                .collection("sampledoc")
+                .exist()) {
+            throw new IllegalArgumentException("Make sure you use create a doc in `sampledoc1` step 11a : https://github.com/datastaxdevs/workshop-spring-stargate#11-using-stargate-document-api");
+        }
+        
         astraClient.apiStargateDocument()
                    .namespace("stargate")
                    .collection("sampledoc")
