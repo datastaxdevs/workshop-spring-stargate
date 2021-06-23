@@ -29,7 +29,6 @@ public class Ex6_SdkDocApi {
                    .namespace("stargate")
                    .collection("sampledoc")
                    .search(SearchDocumentQuery.builder().build(), VideoBean.class)
-                   .getResults()
                    .forEach(doc -> {
                        System.out.println("Document:");
                        System.out.println("+ id=" + doc.getDocumentId());
