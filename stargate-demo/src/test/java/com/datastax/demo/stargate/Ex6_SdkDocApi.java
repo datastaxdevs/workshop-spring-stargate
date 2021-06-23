@@ -27,7 +27,8 @@ public class Ex6_SdkDocApi {
     public void listDocument() {
         
         if (!astraClient.apiStargateDocument()
-                .namespace("stargate").exist()) {
+                .namespace("stargate")
+                .exist()) {
             throw new IllegalArgumentException("Make sure you use 'stargate' as namespace");
         }
         

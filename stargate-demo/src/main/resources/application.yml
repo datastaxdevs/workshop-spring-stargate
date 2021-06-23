@@ -46,6 +46,8 @@ astra:
   # Select an instance
   cloud-region: <DB_REGION>
   database-id: <DB_ID>
-  keyspace: stargate
+  keyspace: stargate 
+
+
 
 
