@@ -39,11 +39,11 @@ springdoc:
 astra:
 
   # Credentials to DB
-  client-id: DHGxwINMpDRIxjaKIMBxIBAL
-  client-secret: rfE-YiNbNKZbnUtj3nI6BBEsaQP9W-HlFG,pJvqhoRTXe91QnyOT4c5CE0XZsA,qab-KTU,Sm4sTOzcDZhf+UdzkJZGx+TMEodT1ucmN.G_H7H-UttPDIHZqjJMKpQg6
-  application-token: AstraCS:DHGxwINMpDRIxjaKIMBxIBAL:951492684a43817978bf5932439e48fa2f71884fd23539df644387b980ca762e
+  client-id: <CLIENT_ID>
+  client-secret: <CLIENT_SECRET>
+  application-token: <APP_TOKEN>
 
   # Select an instance
-  cloud-region: us-east-1
-  database-id: 58a2e502-fccf-4524-ac22-e59277e63edc
+  cloud-region: <DB_REGION>
+  database-id: <DB_ID>
   keyspace: stargate 
