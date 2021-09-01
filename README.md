@@ -4,7 +4,7 @@
 [![License Apache2](https://img.shields.io/hexpm/l/plug.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 [![Discord](https://img.shields.io/discord/685554030159593522)](https://discord.com/widget?id=685554030159593522&theme=dark)
 
-Today we show you an application using **Apache Cassandra™** as a backend implemented with **Spring Boot**, **Spring Data**, the **[Stargate](http://stargate.io)** and relating SDK.
+Today we showcase an application using **Apache Cassandra™** as a backend implemented with **Spring Boot**, **Spring Data**, the **[Stargate](http://stargate.io)** and related SDK.
 
 ![SplashScreen](images/tutorials/splash.png?raw=true)
 
@@ -15,17 +15,17 @@ Which better business domain than the TV Show **Stargate** hoping it will not br
 ℹ️ **Frequently asked questions**
 
 - _Can I run the workshop on my computer?_
-  > There is nothing preventing you from running the workshop on your own machine. If you do so, you will need _java jdk11+_, _Maven_, an IDE like _VSCode, IntelliJ, Eclipse,Spring STS_. You will have to adapt commands and paths based on your environment and install the dependencies by yourself. **We won't provide support** to keep on track with schedule.
+  > There is nothing preventing you from running the workshop on your own machine. If you do so, you will need _java jdk11+_, _Maven_, an IDE like _VSCode, IntelliJ, Eclipse, Spring STS_. You will have to adapt commands and paths based on your environment and install the dependencies by yourself. **We won't provide support** to keep on track with schedule.
 
 ## Materials for the Session
 
 It doesn't matter if you join our workshop live or you prefer to do at your own pace, we have you covered. In this repository, you'll find everything you need for this workshop:
 
-- [Slide deck](./materials/slides.pdf)
+- [Slide deck](./slides.pdf)
 - [Discord chat](https://bit.ly/cassandra-workshop)
 - [Questions and Answers](https://community.datastax.com/)
 
-## Table of content
+## Table of contents
 
 1. [Create Astra DB Instance](#1-create-astra-db-instance)
 2. [Create Tables and insert data](#2-create-table-and-insert-data)
@@ -59,7 +59,7 @@ Follow this [guide](https://docs.datastax.com/en/astra/docs/creating-your-astra-
 
 _You can technically use whatever you want and update the code to reflect the keyspace. This is really to get you on a happy path for the first run._
 
-- **For provider and region**: Choose and provider (Gcp, Azure or AWS) and then the related region is where your database will reside physically (choose one close to you or your users).
+- **For provider and region**: Choose a provider (GCP, Azure or AWS) and then the related region is where your database will reside physically (choose one close to you or your users).
 
 - **Create the database**. Review all the fields to make sure they are as shown, and click the `Create Database` button.
 
@@ -91,13 +91,13 @@ Once the database is created we want to create the tables to insert Data.
 
 > To ease the copy-paste you can use the small clipboard icons as show in the walkthrough. If the CTL+C and CTRL+V does not work in your browser you can also _right-click_ and then select _paste_.
 
-- Enter the following statement in CqlSH console to list existing keyspaces, you should see the one you created with the database.
+- Enter the following statement in CQL console to list existing keyspaces, you should see the one you created with the database.
 
 ```sql
 describe keyspaces;
 ```
 
-- Enter the following statement in CqlSH console to select your keyspace:
+- Enter the following statement in CQL console to select your keyspace:
 
 ```sql
 use stargate;
@@ -105,7 +105,7 @@ use stargate;
 
 ✅ **Step 2c: Create Entities**
 
-- Enter the following statement in CqlSH console to Create a table `chevrons` with the following
+- Enter the following statement in CQL console to Create a table `chevrons` with the following fields
 
 ```sql
 CREATE TABLE IF NOT EXISTS stargate.chevrons(
@@ -163,7 +163,7 @@ INSERT INTO chevrons (area, code, name, picture) VALUES ('Milky Way', 38, 'Leomi
 INSERT INTO chevrons (area, code, name, picture) VALUES ('Milky Way', 39, 'Leo', 'https://github.com/datastaxdevs/workshop-spring-stargate/blob/main/images/glyphs/039glyph-leo.jpg?raw=true');
 ```
 
-You can notice than those are real images, we should thanks the [StargateWiki](http://stargate-sg1-solutions.com/wiki/Main_Page).
+You can notice than those are real images, thanks to [StargateWiki](http://stargate-sg1-solutions.com/wiki/Main_Page).
 
 ![#](images/glyphs/001glyph-earth.jpg?raw=true)
 ![#](images/glyphs/002glyph-crater.jpg?raw=true)
@@ -172,7 +172,7 @@ You can notice than those are real images, we should thanks the [StargateWiki](h
 
 ✅ **Step 2e: Show the results**
 
-We have inserted 39 symbols of the `Milky Way` galaxy with `INSERT` statements but we could have use other solutions like [DSBulk](https://github.com/datastax/dsbulk), Spark, Apis or Astra Data Loader. We will show some of them to you later.
+We have inserted 39 symbols of the `Milky Way` galaxy with `INSERT` statements but we could have used other solutions like [dsbulk](https://github.com/datastax/dsbulk), Spark, Apis or Astra Data Loader. We will show some of them to you later.
 
 - Validate the number of chevrons
 
@@ -190,15 +190,15 @@ select code,name from stargate.chevrons where area='Milky Way';
 
 ## 3. Load dataSet as a CSV
 
-Inserting a couple of values with CQLSH is great but quite verbose right ? we created the table and insert a couple of values.
+Inserting a couple of values with CQL console is great but quite verbose, correct? We created the table and inserted a few values.
 
-In Astra DB there is a tool too speed up that process and both create and import data from a CSV.
+In Astra DB there is a tool to speed up that process and both create and import data from a CSV, instead.
 
 ✅ **Step 3a: Download the dataset**
 
-To download the DATASET, **right-click** _(or CTRL + Click to open in new tab)_ the button below and download the targat file on your machine.
+To download the DATASET, **right-click** _(or CTRL + Click to open in new tab)_ the button below and download the target file on your machine.
 
-> _If the file open in the browser save it with the name `destinations.csv`. This is important as the filename will be the table name._
+> _If the file opens in the browser save it with the name `destinations.csv`. The name is important as the filename will be the table name._
 
 <p align="left">
 <a href="https://raw.githubusercontent.com/datastaxdevs/workshop-spring-stargate/main/dataset/destinations.csv">
@@ -218,7 +218,7 @@ Click on the area _Drag n drop a single file_ and look for the file `destination
 
 ![#](images/tutorials/dataloader-02-upload.png)
 
-Once the file has been upload notive the `Upload Successful` message in green. You can now click `NEXT`
+Once the file has been uploaded notice the `Upload Successful` message in green. You can now click `NEXT`
 
 ✅ **Step 3d: Define the target table**
 
@@ -228,9 +228,9 @@ Once the file has been upload notive the `Upload Successful` message in green. Y
 
 Scroll down to show the the **Keys and Clustering** part of the screen and enter the following
 
-- `galaxy` will be our partition key (assuming there are less than 100 000 stargates in our galaxy) and a lot of galaxy ^^.
+- use the dropdown `galaxy` which will be our partition key (assuming there are less than 100,000 stargates in our galaxy) and a lot of galaxy ^^.
 
-- `name` will be our clustering key in order to ensure unicity of the planet.
+- `name` will be our clustering key in order to ensure a unique name of the planet in the galaxy.
 
 - You can now click `NEXT`
 
@@ -246,7 +246,7 @@ Scroll down to show the the **Keys and Clustering** part of the screen and enter
 
 ✅ **Step 3f: Show Data**
 
-After a few seconds (about 30s) ,you will get an email informing you that the batch has been scheduled.
+After a few seconds (about 30s),you will get an email informing you that the batch has been scheduled.
 
 ![#](images/tutorials/dataloader-06-mail1.png)
 
@@ -254,7 +254,7 @@ As you can see the operation here is asynchronous. About a minute later your wil
 
 ![#](images/tutorials/dataloader-07-mail2.png)
 
-Using the CQL Console enter now the CQL command command from the email:
+Using the CQL Console enter the CQL command that was suggested in the email as below.
 
 ```sql
 SELECT * FROM stargate.destinations LIMIT 10;
@@ -263,7 +263,7 @@ SELECT * FROM stargate.destinations LIMIT 10;
 **👁️ Expected output**
 ![#](images/tutorials/dataloader-08-data.png)
 
-❓ **QUIZZ:** Try to find by yourself the CQL statement to retrieve us the coordinates of planet Chulak in our galaxy.
+❓ **QUIZ:** Try to find by the correct CQL statement to retrieve the coordinates of planet Chulak in our galaxy.
 
 <details><summary><b>Click to view Solution</b></summary>
 <p>
@@ -275,7 +275,7 @@ SELECT chevron1,chevron2,chevron3,chevron4,chevron5,chevron6 FROM stargate.desti
 </p>
 </details>
 
-Yes now we do have the cartouche `9,2,23,16,37,20` ([You can check that we are correct](http://stargate-sg1-solutions.com/wiki/Chulak))
+Yes now we do have the cartouche (a carved tablet or drawing representing a scroll with rolled-up ends) - `9,2,23,16,37,20` ([You can check that we are correct](http://stargate-sg1-solutions.com/wiki/Chulak))
 
 ![#](images/glyphs/009glyph-scorpio.jpg?raw=true)
 ![#](images/glyphs/002glyph-crater.jpg?raw=true)
@@ -283,20 +283,19 @@ Yes now we do have the cartouche `9,2,23,16,37,20` ([You can check that we are c
 ![#](images/glyphs/016glyph-piscesaustrinus.jpg?raw=true)
 ![#](images/glyphs/037glyph-sextans.jpg?raw=true)
 ![#](images/glyphs/020glyph-sculptor.jpg?raw=true)
-
 ![#](images/glyphs/001glyph-earth.jpg?raw=true)
+
+🎉🎉 **Congratulations** we do have both chevrons and coordinates of our destination.
 
 [🏠 Back to Table of Contents](#table-of-content)
 
 ## 4. Create Astra Token
 
-🎉🎉 **Congratulations** we do have both chevrons and coordinates of our destination.
-
-To save _Teal'c_ from _Apophysis_ we still need to create a **token** that we will use as our credentials.
+However, to save _Teal'c_ from _Apophysis_ we still need to create a **token** that we will use as our credentials.
 
 ✅ **Step 4a: Generate Token**
 
-Following the [Documentation](https://docs.datastax.com/en/astra/docs/manage-application-tokens.html) create a token with `Database Admnistrator` roles.
+Following the [Manage Application Tokens docs](https://docs.datastax.com/en/astra/docs/manage-application-tokens.html) create a token with `Database Admnistrator` roles.
 
 - Go the `Organization Settings`
 
@@ -310,7 +309,7 @@ Following the [Documentation](https://docs.datastax.com/en/astra/docs/manage-app
 
 ![image](images/tutorials/astra-create-token.gif?raw=true)
 
-This is what the token page looks like. You can now download the values as a CSV. We will need those values but you can also keep this window open.
+This is what the token page looks like. You can now download the values as a CSV. We will need those values but you can also keep this window open for use later.
 
 ![image](images/tutorials/astra-token.png?raw=true)
 
@@ -320,17 +319,19 @@ Notice the clipboard icon at the end of each value.
 
 - `clientSecret:` We will use it as a _password_ to contact Cassandra
 
-- `appToken:` We will use it as a api Key to interact with APIS.
+- `appToken:` We will use it as a api token Key to interact with APIs.
 
 To know more about roles of each token you can have a look to [this video.](https://www.youtube.com/watch?v=nRqu44W-bMU)
 
-We are now set with the Database and credentials. Let's code with Spring !
+**Note: Make sure you don't close the window accidentally or otherwise - if you close this window before you copy the values, the application token is lost forever. They won't be available later for security reasons.**
+
+We are now set with the database and credentials. Let's start coding with Spring !
 
 [🏠 Back to Table of Contents](#table-of-content)
 
 ## 5. Launch Gitpod
 
-[Gitpod](https://www.gitpod.io/) is an IDE 100% online based on Eclipse Theia. To initialize your environment simply click on the button below _(CTRL + Click to open in new tab)_ You will be asked for you github account.
+[Gitpod](https://www.gitpod.io/) is an IDE 100% online based on [VS Code](https://github.com/gitpod-io/vscode/blob/gp-code/LICENSE.txt?lang=en-US). To initialize your environment simply click on the button below _(CTRL + Click to open in new tab)_ You will be asked for you github account, as needed.
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/datastaxdevs/workshop-spring-stargate)
 
@@ -342,7 +343,7 @@ _The screenshot may be slightly different based on your default skin and a few e
 
 **That's it.** Gitpod provides all tools we will need today including `Maven` and exporting port `8080`. At initialization of the workspace we schedule a `mvn clean install` to download dependencies.
 
-Also you may have noticed there is a build happening - even before we get started. The sample project already exists and loading the developer enviroment triggers a build to download all the maven dependencies so you don't have to.
+Also you may have noticed that a build is happening - even before we get started. The sample project already exists and loading the developer enviroment triggers a build to download all the maven dependencies so you don't have to.
 
 [🏠 Back to Table of Contents](#table-of-content)
 
@@ -350,7 +351,7 @@ Also you may have noticed there is a build happening - even before we get starte
 
 ✅ **Step 6a: Know your public URL**
 
-The workshop application has opened with an ephemeral URL. To know the URL where your application endpoint will be exposed you can run the following command in the terminal:
+The workshop application has opened with an ephemeral URL. To know the URL where your application endpoint will be exposed you can run the following command in the terminal after the build has completed.
 
 ```bash
 gp url 8080
@@ -384,7 +385,7 @@ To run the application you need to provide the credentials and identifier to the
 
 - Open the file `stargate-demo/src/main/resources/application.yml` as show below.
 
-- Replace `client-id`, `clientSecret`, `application-token` with values shown on the Astra token screen or picking the values from the CSV token file your dowloaded before.
+- Replace `client-id`, `clientSecret`, `application-token` with values shown on the Astra token screen or picking the values from the CSV token file your dowloaded before including the AstraCS: part of the token.
 
 > To ease the copy-paste you can use the small clipboard icons as show in the walkthrough.
 
@@ -392,25 +393,25 @@ To run the application you need to provide the credentials and identifier to the
 
 - In Astra DB go back to home page by clicking the logo
 
-- Select you database `workshops` in the left panel and then copy values for `cloud-region` and `database-id` (clusterID) from the details page
+- Select you database `workshops` in the left panel and then copy values for `cloud-region` and `database-id` (clusterID) from the details page.
 
 **👁️ Walkthrough**
 
 ![gitpod](images/tutorials/copy-credentials.gif?raw=true)
 
-TADA your application is now configured we ccan finally play with some code.
+TADA your application is now configured we can finally play with some code.
 
 [🏠 Back to Table of Contents](#table-of-content)
 
 ## 8. Run some unit tests
 
-The application is now set you should be able to interact with your DB let's demonstrate some capabilities
+The application is now set you should be able to interact with your DB. Let's demonstrate some capabilities.
 
 ✅ **Step 8a: Use CqlSession**
 
 Interaction with Cassandra are implemented in Java through drivers and the main Class is `CqlSession`.
 
-Higher level framework liike Spring , Spring Data, or even quarkus will rely on this object so let's make sure it is part of your Spring context with a `@SpringBootTest`
+Higher level frameworks like Spring, Spring Data, or even quarkus will rely on this object so let's make sure it is part of your Spring context with a `@SpringBootTest`.
 
 ```bash
 mvn test -Dtest=com.datastax.demo.stargate.Ex1_UseCqlSessionTest
@@ -434,7 +435,7 @@ mvn test -Dtest=com.datastax.demo.stargate.Ex1_UseCqlSessionTest
 
 ✅ **Step 8b: Working With Spring Data**
 
-Spring Data allow some Mapping `Object <=> Table` based on annotation at the java bean level. Then by convention CQL query will be executed under the hood.
+Spring Data allows Mapping `Object <=> Table` based on annotation at the java bean level. Then by convention CQL query will be executed under the hood.
 
 ```bash
 mvn test -Dtest=com.datastax.demo.stargate.Ex2_UseSpringDataChevronTest
@@ -444,7 +445,7 @@ This test perform 3 operations:
 
 - Find all Chevrons in the table
 - Find a chevron by its primary key
-- Find all chevron in oour galaxy (partition key)
+- Find all chevrons in our galaxy (partition key)
 
 **👁️ Expected output**
 
@@ -469,14 +470,14 @@ mvn test -Dtest=com.datastax.demo.stargate.Ex3_UseSpringDataDestinationTest
 
 ✅ **Step 9a: Start the application**
 
-Navigate to the folder and simply start the application with the following command
+Navigate to the folder and simply start the application with the following command.
 
 ```bash
 cd /workspace/workshop-spring-stargate/stargate-demo
 mvn spring-boot:run
 ```
 
-Your application is now started you should have a look to the logs here
+Your application is now started you should have a peek at the logs here
 
 ```bash
  Initializing [AstraClient]
@@ -508,15 +509,15 @@ The application is running on our first terminal. To enter new commands please c
 
 ✅ **Step 9c: Open the application**
 
-Are you ready ? Now is the time to play the DEMO.
+Are you ready? Now is the time to play the demo.
 
-It is better to use a dedicate TAB to open the application in full screen. Use this command to show the URL.
+It is better to use a dedicated TAB in the browser to open the application in full screen. Use this command to show the URL.
 
 ```bash
 gp url 8080
 ```
 
-If you have the link in the terminal gitpod propose you to open on a new tab click `Follow link`.
+If you have the link in the terminal gitpod, it's a lot easier to create a new tab by clicking `Follow link`.
 
 ![gitpod](images/tutorials/follow-link.png?raw=true)
 
@@ -542,7 +543,7 @@ hb.setChevronMap(chevronMap);
 ctx.setVariable("homebean", hb);
 ```
 
-- Click on one orange `chrevron` in the order to make the wheel start spinning. Click the chevrons one after the other to simulate the dialing. As soon as all chevrons are engaged the vortex open.
+- Click on one orange `chrevron` in the order to make the wheel start spinning. Click the chevrons one after the other to simulate the dialing. As soon as all chevrons are engaged the vortex will open.
 
 ![SplashScreen](images/tutorials/pic-travel.png?raw=true)
 
@@ -552,11 +553,11 @@ Congratulations you Played the demo !
 
 ## 10. Using Stargate Rest API
 
-The gateway [Stargate](stargate.io) allow you to execute the operations through a rest API. Let's list the chevrons.
+The gateway [Stargate](stargate.io) allows you to execute the operations through a REST API. Let's list the chevrons.
 
 ✅ **Step 10a: Open swagger**
 
-In the logs of the application locate the URL `REST API:` which look like `https://<DB_ID>-<DB_REGION>.apps.astra.datastax.com/api/rest/`
+In the logs of the application on stdout locate the URL `REST API:` which look like `https://<DB_ID>-<DB_REGION>.apps.astra.datastax.com/api/rest/`
 
 In my case it is `https://3c7fc647-c03b-4a0c-aa6b-a00dd677ac53-eu-central-1.apps.astra.datastax.com/api/rest/`.
 
@@ -649,11 +650,11 @@ The api will create a new table for the collection and insert the JSON document.
 
 ## 12. Walkthrough SDK
 
-Well you had an overview about the Apis exposed by Stargate. There is also a [GraphQL API if you want to know more](https://docs.datastax.com/en/astra/docs/using-the-astra-graphql-api.html).
+Well you had an overview about the APIs exposed by Stargate. There is also a [GraphQL API if you want to know more](https://docs.datastax.com/en/astra/docs/using-the-astra-graphql-api.html).
 
-A SDK or _Software Developement Kit_ is used here to ease the usage of each API. It is also the one creating a bean `CqlSession` that will be use with Spring Data Cassandra as is.
+A SDK or _Software Developement Kit_ is used here to ease the usage of each API. It is also the one creating a bean `CqlSession` that will be used with Spring Data Cassandra as is.
 
-The Astra SDK has been installed with a single starter dependency. You can have more informations [here](https://github.com/datastax/astra-sdk-java/wiki)
+The Astra SDK has been installed with a single starter dependency. More information is [here](https://github.com/datastax/astra-sdk-java/wiki)
 
 ```xml
 <dependency>
@@ -668,6 +669,7 @@ The Astra SDK has been installed with a single starter dependency. You can have 
 In a gitpod terminal use Maven to execute a unit test illustrating the usage of the `Devops API` from the SDK.
 
 ```bash
+cd /workspace/workshop-spring-stargate/stargate-demo
 mvn test -Dtest=com.datastax.demo.stargate.Ex4_SdkDevopsApi
 ```
 
@@ -749,9 +751,9 @@ That's it, you are done! Expect an email next week!
 
 [🏠 Back to Table of Contents](#table-of-content)
 
-## 14. Happy END
+## 14. The END
 
-Congratulation your made it to the END.
+Congratulations, your made it to the END of the show.
 
 **💚 Share the love**
 
