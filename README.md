@@ -480,21 +480,39 @@ mvn spring-boot:run
 Your application is now started you should have a peek at the logs here
 
 ```bash
- Initializing [AstraClient]
- + Load configuration from Environment Variables/Property
- + Load configuration from Builder parameters
- + Devops API is enabled.
- + Creating folder .astra
- + Downloading secureBundle for db '3c7fc647-c03b-4a0c-aa6b-a00dd677ac53'
- + SecureBundle Path used: /home/gitpod/.astra/secure_connect_bundle_3c7fc647-c03b-4a0c-aa6b-a00dd677ac53.zip
- + Using clientId/clientSecret for CqlSession
- + Document API:  https://3c7fc647-c03b-4a0c-aa6b-a00dd677ac53-eu-central-1.apps.astra.datastax.com/api/rest,
- + Rest API: https://3c7fc647-c03b-4a0c-aa6b-a00dd677ac53-eu-central-1.apps.astra.datastax.com/api/rest,
- + Rest API: http://localhost:8080,
- Using Keyspace stargate
- + Cql API: Enabled
- [StargateClient] has been initialized
- [AstraClient] has been initialized.
+Picked up JAVA_TOOL_OPTIONS: -Xmx1879m
+  _________ __                             __
+  /   _____//  |______ _______  _________ _/  |_  ____
+  \_____  \\   __\__  \\_  __ \/ ___\__  \\   __\/ __ \
+  /        \|  |  / __ \|  | \/ /_/  > __ \|  | \  ___/
+ /_______  /|__| (____  /__|  \___  (____  /__|  \___  >
+        \/           \/     /_____/     \/          \/
+ ________
+ \______ \   ____   _____   ____
+  |    |  \_/ __ \ /     \ /  _ \
+  |    `   \  ___/|  Y Y  (  <_> )
+ /_______  /\___  >__|_|  /\____/
+         \/     \/      \/
+
+ DataStax Developer Advocate team
+
+Starting StargateDemoApplication using Java 11.0.10 on
+No active profile set, falling back to default profiles: default
++ Load Environment Variables
++ Load Builder parameters
++ HttpClient Initialized
++ API(s) Devops is [ENABLED]
++ Load Secure Connect: /home/gitpod/.astra/secure_connect_bundle_58a2e502-fccf-4524-ac22-e59277e63edc.zip
++ CQL Credentials: ${clientId}${/clientSecret}
++ API(s) Document is [ENABLED] https://58a2e502-fccf-4524-ac22-e59277e63edc-us-east-1.apps.astra.datastax.com/api/rest
++ API(s) REST Data is [ENABLED] https://58a2e502-fccf-4524-ac22-e59277e63edc-us-east-1.apps.astra.datastax.com/api/rest
++ API(s) GraphQL [ENABLED] https://58a2e502-fccf-4524-ac22-e59277e63edc-us-east-1.apps.astra.datastax.com/api/graphql
++ API(s) Cql is [ENABLED]
++ Keyspace stargate
+[StargateClient] has been initialized
+[AstraClient] has been initialized.
+[THYMELEAF][restartedMain] Template Mode 'XHTML' is deprecated. Using Template Mode 'HTML' instead.
+Started StargateDemoApplication in 7.883 seconds (JVM running for 8.497)
 ```
 
 **👁️ Expected output**
@@ -529,23 +547,13 @@ If you have the link in the terminal gitpod, it's a lot easier to create a new t
 
 - Click on the planet name you want to reach here `CHULAK` the coordinates are not entered in the Stargate.
 
-```java
-HomeBean hb = new HomeBean();
-hb.setDestination(repo1
-    .findById(new DestinationPrimaryKey(
-        "Milky Way", "Chulak")).get());
-chevronRepository.findByKeyArea("Milky Way")
-                 .forEach(chevron -> {
-                chevronMap.put(chevron.getKey().getCode(), chevron.getName());
-            });
-}
-hb.setChevronMap(chevronMap);
-ctx.setVariable("homebean", hb);
-```
-
 - Click on one orange `chrevron` in the order to make the wheel start spinning. Click the chevrons one after the other to simulate the dialing. As soon as all chevrons are engaged the vortex will open.
 
-![SplashScreen](images/tutorials/pic-travel.png?raw=true)
+![SplashScreen](images/tutorials/demo-home-2.png?raw=true)
+
+Activate the rest of the chevrons to open the stargate...Buckle up !
+
+![SplashScreen](images/tutorials/demo-home-3.png?raw=true)
 
 Congratulations you Played the demo !
 
@@ -557,15 +565,15 @@ The gateway [Stargate](stargate.io) allows you to execute the operations through
 
 ✅ **Step 10a: Open swagger**
 
-In the logs of the application on stdout locate the URL `REST API:` which look like `https://<DB_ID>-<DB_REGION>.apps.astra.datastax.com/api/rest/`
-
-In my case it is `https://3c7fc647-c03b-4a0c-aa6b-a00dd677ac53-eu-central-1.apps.astra.datastax.com/api/rest/`.
-
-- Add `swagger-ui/` as a suffix and open it in the preview
+In a terminal that is not running the demo enter the command in order to open the swagger UI from Astra (URL has been built based on the values you entered in `application.yaml`)
 
 ```bash
-gp preview https://<YOUR_DB_ID>-<YOUR_DB_REGION>.apps.astra.datastax.com/api/rest/swagger-ui/
+/workspace/workshop-spring-stargate/open-swagger.sh
 ```
+
+**👁️ Script output**
+
+![SplashScreen](images/tutorials/open-swagger.png?raw=true)
 
 **👁️ Expected output**
 
