@@ -670,7 +670,7 @@ The Astra SDK has been installed with a single starter dependency. More informat
 <dependency>
   <groupId>com.datastax.astra</groupId>
   <artifactId>astra-spring-boot-starter</artifactId>
-  <version>0.1.0</version>
+  <version>0.1.14</version>
 </dependency>
 ```
 
