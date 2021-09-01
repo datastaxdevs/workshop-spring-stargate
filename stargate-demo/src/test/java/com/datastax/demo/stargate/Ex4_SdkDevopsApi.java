@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.datastax.astra.sdk.AstraClient;
+import com.datastax.astra.sdk.databases.domain.DatabaseFilter;
+import com.datastax.astra.sdk.databases.domain.DatabaseFilter.Include;
 
 @SpringBootTest
 public class Ex4_SdkDevopsApi {
@@ -15,7 +17,10 @@ public class Ex4_SdkDevopsApi {
     @Test
     public void listAvailableDatabases() {
         astraClient.apiDevopsDatabases()
-                   .databasesNonTerminated()
+                   .searchDatabases(DatabaseFilter
+                            .builder()
+                            .include(Include.ACTIVE)
+                            .build())
                    .forEach(db -> {
           System.out.println("Database '" + db.getInfo().getName() + "'");
           System.out.println("+ id=" + db.getId());
