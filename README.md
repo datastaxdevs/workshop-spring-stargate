@@ -557,6 +557,8 @@ Activate the rest of the chevrons to open the stargate...Buckle up !
 
 Congratulations you Played the demo !
 
+![demo](images/demo.gif?raw=true)
+
 [🏠 Back to Table of Contents](#table-of-content)
 
 ## 10. Using Stargate Rest API
