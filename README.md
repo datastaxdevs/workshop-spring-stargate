@@ -22,6 +22,7 @@ Which better business domain than the TV Show **Stargate** hoping it will not br
 It doesn't matter if you join our workshop live or you prefer to do at your own pace, we have you covered. In this repository, you'll find everything you need for this workshop:
 
 - [Slide deck](./slides.pdf)
+- [Workshop video](https://www.youtube.com/watch?v=mL9oDZPJfwk)
 - [Discord chat](https://bit.ly/cassandra-workshop)
 - [Questions and Answers](https://community.datastax.com/)
 
